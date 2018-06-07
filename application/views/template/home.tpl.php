@@ -21,15 +21,15 @@
         <?php echo css("font-awesome.min.css"); ?>
         <?php echo css("datepicker.css"); ?>
 
-        
 
-        
+
+
         <?php echo css("component.css"); ?>
 
         <?php echo css("reis.css"); ?>
         <?php echo css("style-60.css"); ?>
         <?php echo css("font-awesome-4.1.0/css/font-awesome.min.css"); ?>
-        
+
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -39,7 +39,7 @@
         <?php echo js("common/tooltip.js"); ?>
         <?php echo js("hover-dropdown.js"); ?>
       <!--<script type="text/javascript">
-      $(document).ready(function(){ 
+      $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
       });
       var img_url_loader = "<?php //echo img_url_loader();  ?>";
@@ -68,7 +68,7 @@
     </head>
 
     <body>
-        
+
         <div id="fb-root"></div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -80,7 +80,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<div class="network-bar"> 
+<div class="network-bar">
             <a class="jama-network" href="/" title="Recursos Electrónicos de Información en Salud">Recursos Electrónicos de Información Salud</a>
             </div>
         <!-- Header starts-->
@@ -167,7 +167,7 @@ if ($this->session->has_userdata("usuario_logeado")) {
                         <b>	<?php
             printf("Bienvenido: %s %s %s", $this->session->userdata("nombre"), $this->session->userdata("apaterno"), $this->session->userdata("amaterno"));
             ?>
-                        </b>	
+                        </b>
                     </div>
                 </div>
             </div>
@@ -224,7 +224,7 @@ if ($this->session->has_userdata("usuario_logeado")) {
                             <div class="col-sm-2"></div>
                             <div class="col-sm-8">
                                 <div class="row">
-                                    <div class="alert alert-error">						
+                                    <div class="alert alert-error">
     <?php echo $this->session->flashdata('warning'); ?>
                                     </div>
                                 </div>
@@ -252,9 +252,9 @@ if (!is_null($main_content)) {
                         <div class="col-lg-5">
                             <p>MESA DE AYUDA<br>
 
-                                Teléfono : 56 27 69 00 Exts. 21146, 21147 y 21148<br>
+                                Teléfono : 56 27 69 00 Extensiones: 21146, 21147 y 21148<br>
 
-                                Red: 865021146, 865021147, 865021148<br>
+                                <!--Red: 865021146, 865021147, 865021148<br>-->
 
                                 Correo electrónico : <a href="mailto:acceso.edumed@imss.gob.mx">acceso.edumed@imss.gob.mx</a><br>
 

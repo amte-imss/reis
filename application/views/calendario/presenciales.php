@@ -104,16 +104,16 @@
                         $status = $fecha['a_estado'];
                         $liga = site_url('registro/');
                         $circle = 'bg-grey';
-                        $boton = '<a href="' . $liga . '" target="_blank" class="btn btn-black" disabled="disabled">Cerrado</a>';
+                        $boton = '<a class="btn btn-black" disabled >Cerrado</a>';
                         if ($fecha_inicio > $dia_actual && $fecha['a_estado'] == 1) {
-                            $boton = '<a href="' . $liga . '" target="_blank" class="btn btn-info">Registrar</a>';
+                            $boton = '<a href="' . $liga . '" class="btn btn-info">Registrar</a>';
                             $circle = 'bg-green';
                         }
                         //<i class="fa fa-desktop orange"></i></h3>
                         ?><div class="col-md-4">
                             <!-- Pricing item -->
                             <div class="ui-item clearfix">
-                                <a href="#" class="ui-price <?php echo $circle; ?> circle"> <?php echo $dia . '<b> y </b><br />' . $fin; ?> </a>
+                                <a class="ui-price <?php echo $circle; ?> circle"> <?php echo $dia . '<b> y </b><br />' . $fin; ?> </a>
                                 <div class="ui-plan">
                                     <!-- Plan name -->
                                     <h3><?php echo $meses[$mes]; ?>

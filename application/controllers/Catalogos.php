@@ -70,7 +70,7 @@ class Catalogos extends CI_Controller {
 	  //$fecha2=strftime($inicio);
         $fecha1 = strtotime($pre);
         $fecha2 = strtotime($inicio);
-          
+
 	  //$fecha1=DateTime::createFromFormat('d/m/Y', $pre);
 	  //$fecha2=DateTime::createFromFormat('d/m/Y', $inicio);
 
@@ -92,7 +92,7 @@ class Catalogos extends CI_Controller {
 	  //$fecha2=DateTime::createFromFormat('d/m/Y', $fin);
         $fecha1 = strtotime($inicio);
         $fecha2 = strtotime($fin);
-        if ($fecha1 >= $fecha2) {
+        if ($fecha1 > $fecha2) {
 
 
 	      $this->form_validation->set_message('fechas_sesion', 'La {field} debe ser menor a la fecha de fin de la sesión. Por favor verifíquelo');
@@ -110,7 +110,7 @@ class Catalogos extends CI_Controller {
         $fecha2 = strtotime($fin_eva);
 	  //$fecha1=DateTime::createFromFormat('d/m/Y', $inicio_eva);
 	  //$fecha2=DateTime::createFromFormat('d/m/Y', $fin_eva);
-        if ($fecha1 >= $fecha2) {
+        if ($fecha1 > $fecha2) {
 
 
 	      $this->form_validation->set_message('fechas_evaluacion_i', 'La {field} debe ser menor a la fecha inicial de la evaluación. Por favor verifíquelo');
@@ -128,7 +128,7 @@ class Catalogos extends CI_Controller {
         $fecha2 = strtotime($fin_eva);
 	  //$fecha1=DateTime::createFromFormat('d/m/Y', $inicio_eva);
 	  //$fecha2=DateTime::createFromFormat('d/m/Y', $fin_eva);
-        if ($fecha1 >= $fecha2) {
+        if ($fecha1 > $fecha2) {
 
 
 	      $this->form_validation->set_message('fechas_evaluacion_f', 'La {field} debe ser menor a la fecha final de la evaluación. Por favor verifíquelo');
@@ -170,7 +170,7 @@ class Catalogos extends CI_Controller {
         $this->template->setMainContent($this->load->view('catalogos/categorias.php', $output, TRUE));
         $this->template->getTemplate();
     }
-    
+
     /**
      * Grud para rist_delegacion
      * @author Christian Garcia

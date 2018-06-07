@@ -1,6 +1,8 @@
 <?php //echo css("password.css"); ?>
 <?php //echo js("modernizr.custom.js"); ?>
 <?php //echo js("hideShowPassword.min.js"); ?>
+<?php echo js("regresar.js"); ?>
+<?php echo css("registro.css"); ?>
 <?php
 
 if( $sesiones_programadas_distancia_disponibles != 0)
@@ -24,6 +26,7 @@ if( $sesiones_programadas_distancia_disponibles != 0)
     <div class="<?php echo $col_ficha_informativa_clases ?>">
         <div class="row" style="margin:5px;">
             <div class="panel">
+                <a onclick="window.history.back();" class="ligas"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
                 <div class="breadcrumbs6 panel-heading" style="padding-left:20px; padding-top: 40px; padding-bottom: 50px; background-size: 100% 100%;">
                     <h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Bienvenido</h1></div>
                 <div class="panel-body">

@@ -1,6 +1,8 @@
 <?php //echo css("password.css"); ?>
 <?php //echo js("modernizr.custom.js"); ?>
 <?php //echo js("hideShowPassword.min.js"); ?>
+<?php echo js("regresar.js"); ?>
+<?php echo css("registro.css"); ?>
 <style type="text/css">
 .rojo {
     color: #a94442;
@@ -10,13 +12,16 @@
     color: #000;
 }
 </style>
+<a onclick="window.history.back();" class="ligas"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
+<div class="row"><h1><small><span <?php echo css("registro.css"); ?>class="glyphicon glyphicon-info-sign"></span></small> Bienvenido</h1>
 
-<div class="row"><h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Bienvenido</h1>
-  
    <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="row" style="margin:5px;">
             <div class="panel">
-                <div class="breadcrumbs6 panel-heading" style="padding-left:20px;"><h1 id="titulo_registro"><small><span class="glyphicon glyphicon-info-sign"></span></small> Registro a los talleres de actualización de recursos electrónicos <font color="yellow">(Sesiones presenciales. Sede CENAIDS Centro Médico Siglo XXI)</font></h1></div>
+                <div class="breadcrumbs6 panel-heading" style="padding-left:20px;"><h1 id="titulo_registro"><small><span class="glyphicon glyphicon-info-sign"></span></small> Registro a los talleres de actualización de recursos electrónicos <font class="fontTitulo">(Sesiones presenciales. Sede CENAIDS Centro Médico Siglo XXI)</font></h1></div>
+ate function token(){
+        $token = md5(uniqid(rand(),TRUE));
+        $this->session->set_userdata('token',$token);
 
     				<div class="panel-body">
     				<?php if(exist_and_not_null($error)){ ?>
@@ -39,72 +44,72 @@
                             <?php
                             echo $this->form_complete->create_element(
                                     array(
-                                        'id'=>'reg_matricula', 
-                                        'type'=>'text', 
+                                        'id'=>'reg_matricula',
+                                        'type'=>'text',
                                         'attributes'=>array(
-                                            'class'=>'form-control-personal', 
+                                            'class'=>'form-control-personal',
                                             'placeholder'=>'Matr&iacute;cula',
                                             'autocomplete'=>'off',
-                                            'data-toggle'=>'tooltip', 
-                                            'data-placement'=>'bottom', 
+                                            'data-toggle'=>'tooltip',
+                                            'data-placement'=>'bottom',
                                             'title'=>'Matr&iacute;cula',
                                             'maxlength'=>20
                                             )
                                         )
-                                    ); 
+                                    );
                             //'<br><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>','</div>'
-                            ?>                        
+                            ?>
                             </div>
                             <?php   echo form_error_format('reg_matricula'); ?>
                         </div>
                     </div>
-                      
+
                     <div class="form-group">
                         <label class="col-sm-4 control-label"><b class="rojo">*</b> Delegaci&oacute;n IMSS:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-chevron-down"> </span>
-                            <?php 
+                            <?php
                             echo $this->form_complete->create_element(
                                     array(
-                                        'id'=>'reg_delegacion', 
-                                        'type'=>'dropdown', 
-                                        'options'=>$delegaciones, 
+                                        'id'=>'reg_delegacion',
+                                        'type'=>'dropdown',
+                                        'options'=>$delegaciones,
                                         'first'=>array(''=>'Seleccione la delegaci&oacute;n'),
                                         'attributes'=>array(
                                             'class'=>'form-control-personal',
-                                            'data-placement'=>'bottom', 
+                                            'data-placement'=>'bottom',
                                             'title'=>'Delegaci&oacute;n de trabajo',
                                             )
                                         )
-                                    ); 
-                            ?>                       
+                                    );
+                            ?>
                             </div>
                             <?php   echo form_error_format('reg_delegacion'); ?>
                         </div>
                     </div>
-                                        
+
                     <div class="form-group">
                         <label class="col-sm-4 control-label"><b class="rojo">*</b> Correo electr&oacute;nico:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon"><strong>@</strong> </span>
-                                <?php 
+                                <?php
                                 echo $this->form_complete->create_element(
                                     array(
-                                        'id'=>'reg_email', 
-                                        'type'=>'email', 
+                                        'id'=>'reg_email',
+                                        'type'=>'email',
                                         'attributes'=>array(
-                                            'class'=>'form-control-personal form-control', 
+                                            'class'=>'form-control-personal form-control',
                                             'placeholder'=>'alguien@imss.gob.mx',
-                                            'autocomplete'=>'off', 
-                                            'data-placement'=>'bottom', 
+                                            'autocomplete'=>'off',
+                                            'data-placement'=>'bottom',
                                             'title'=>'Correo electr&oacute;nico del aspirante',
                                             'maxlength'=>80
                                             )
                                         )
-                                    ); 
-                                ?>                            
+                                    );
+                                ?>
                             </div>
                              <?php echo form_error_format('reg_email'); ?>
                         </div>
@@ -115,26 +120,26 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-chevron-down"> </span>
-                            <?php 
+                            <?php
                             echo $this->form_complete->create_element(
                                     array(
                                         'id'=>'reg_sesion',
-                                        'type'=>'dropdown', 
-                                        'options'=>$sesiones_programadas_disponibles, 
+                                        'type'=>'dropdown',
+                                        'options'=>$sesiones_programadas_disponibles,
                                         'first'=>array(''=>'Seleccione la sesión'),
                                         'attributes'=>array(
                                             'class'=>'form-control-personal',
-                                            'data-placement'=>'bottom', 
+                                            'data-placement'=>'bottom',
                                             'title'=>'Sesiones programadas',
                                             )
                                         )
-                                    ); 
-                            ?>                       
+                                    );
+                            ?>
                             </div>
                             <?php   echo form_error_format('reg_sesion'); ?>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="col-sm-4 control-label"><b class="rojo">*</b> C&oacute;digo de seguridad:</label>
                         <div class="col-sm-8">
@@ -144,21 +149,21 @@
                             <?php
                             echo $this->form_complete->create_element(
     							array(
-    								'id'=>'txt_captcha', 
-    								'type'=>'text', 
+    								'id'=>'txt_captcha',
+    								'type'=>'text',
     								'attributes'=>array(
-    									'class'=>'form-control-personal ', 
+    									'class'=>'form-control-personal ',
     									'placeholder'=>'Escribe el texto de la imagen...',
     									'autocomplete'=>'off',
-    									'data-toggle'=>'tooltip', 
-    									'data-placement'=>'top', 
+    									'data-toggle'=>'tooltip',
+    									'data-placement'=>'top',
     									'title'=>'C&oacute;digo de seguridad',
     									'maxlength'=>6
     									)
     								)
-    							); 
+    							);
                             ?>
-                            
+
                             </div>
                             <?php echo form_error_format('txt_captcha'); ?>
                         </div>
@@ -167,16 +172,16 @@
         				<input type="hidden" id="token" name="token" value="<?php echo (exist_and_not_null($this->session->userdata('token')) ? $this->session->userdata('token') : ''); ?>">
                             <?php
                             echo $this->form_complete->create_element(array(
-                                'id'=>'btn_submit', 
-                                'type'=>'submit', 
-                                'value'=>'Registrar', 
+                                'id'=>'btn_submit',
+                                'type'=>'submit',
+                                'value'=>'Registrar',
                                 'attributes'=>array(
                                     'class'=>'btn btn-primary'
                                     )
                                 ));
-                            
-                            
-                            echo form_close(); 
+
+
+                            echo form_close();
                             ?>
                     </div>
                 </div>

@@ -1,7 +1,21 @@
+<style type="text/css">
+
+@media (min-width: 1200px){
+  .container {
+    width: 1225px;
+    /* padding-left: 44px; */
+  }
+}
+.home{
+  margin-left: 30px !important;
+  padding-top: 15px;
+  padding-right: 11px;
+}
+</style>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+        <div class="navbar-header home">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -9,10 +23,10 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<a class="navbar-brand" href="index.html">Inicio</a>-->
-            <a class="navbar-brand" href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html"><span class="glyphicon glyphicon-home"> </span> Home</a>
+            <a class="navbar-bran" style="font-size: 16px;" href="<?php echo site_url() ?>"><span class="glyphicon glyphicon-home"> </span> Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding:0px;">
             <ul class="nav navbar-nav">
                 <?php
                 $usuario_logueado = $this->session->userdata('usuario_logeado');
@@ -20,8 +34,11 @@
                 $tipo_admin_config = $this->config->item('rol_admin'); //Identificador de administrador
                 //pr($tipo_admin);
                 if (exist_and_not_null($usuario_logueado)) { ///Validar si usuario inicio sesión
-                    if ($tipo_admin == $tipo_admin_config['SUPERADMIN']['id']) { ///Administrador 
+                    if ($tipo_admin == $tipo_admin_config['SUPERADMIN']['id']) { ///Administrador
                         ?>
+                        <li>
+                            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
@@ -87,6 +104,9 @@
                             <a href="<?php echo site_url('login/cerrar_session'); ?>"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
                         </li>
     <?php } elseif ($tipo_admin == $tipo_admin_config['ADMIN']['id']) { ///Administrador  ?>
+                        <li>
+                            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
@@ -119,6 +139,9 @@
                             <a href="<?php echo site_url('login/cerrar_session'); ?>"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
                         </li>
     <?php } else { //Docente  ?>
+                        <li>
+                            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
@@ -136,9 +159,11 @@
                             <a href="<?php echo site_url('login/cerrar_session'); ?>"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
                         </li>
                     <?php }
-                } else { ///Usuario sin sesión 
-                    ?>     
-
+                } else { ///Usuario sin sesión
+                    ?>
+                            <li>
+                                <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                            </li>
                             <li class="dropdown">
                                 <a  href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/presentacion.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio <span class="caret"></span> </a>
                                 <ul class="dropdown-menu">
@@ -195,7 +220,7 @@
                                 <a href="#">Contacto</a>
                             </li>
 
-<?php } ?>            
+<?php } ?>
             </ul>
         </div>
     </div>
@@ -218,14 +243,14 @@
                     <div class="media-body">
                         <h3 class="media-heading">Mesa de ayuda</h3>
                         <p>No dude en ponerse en contacto con nosotros.</p>
-                        <p><i class="fa fa-phone"></i> 
+                        <p><i class="fa fa-phone"></i>
                             <abbr title="Phone">Tel</abbr>: 56 27 69 00 <strong> Exts.</strong> 21146, 21147 y 21148 </p>
-                        <p><i class="fa fa-arrow-circle-right"></i> 
+                        <p><i class="fa fa-arrow-circle-right"></i>
                             <abbr title="red">Red</abbr>: 865021146, 865021147, 865021148</p>
-                        <p><i class="fa fa-envelope-o"></i> 
+                        <p><i class="fa fa-envelope-o"></i>
                             <abbr title="Email">Email</abbr>: <a href="mailto:acceso.edumed@imss.gob.mx">acceso.edumed@imss.gob.mx</a>
                         </p>
-                        <p><i class="fa fa-clock-o"></i> 
+                        <p><i class="fa fa-clock-o"></i>
                             <abbr title="Hours">Horario</abbr>: lunes - viernes: 8:00 AM a 16:00 Hrs</p>
                     </div>
                 </div>
@@ -241,15 +266,15 @@
                         <h3 class="media-heading">Disponibilidad de Recursos</h3>
                         <p><strong>Lic. Verónica Sánchez Castillo </strong></p>
                         <p>División de Innovación Educativa </p>
-                        <p><i class="fa fa-phone"></i> 
+                        <p><i class="fa fa-phone"></i>
                             <abbr title="Phone">Tel</abbr>:  (55) 5627 6900   <strong> Exts.</strong> 21250</p>
-                        <p><i class="fa fa-envelope-o"></i> 
+                        <p><i class="fa fa-envelope-o"></i>
                             <abbr title="Email">Email</abbr>: <a href="mailto:veronica.sanchezc@imss.gob.mx">veronica.sanchezc@imss.gob.mx</a>
                         </p>
-                        <p><i class="fa fa-envelope-o"></i> 
+                        <p><i class="fa fa-envelope-o"></i>
                             <abbr title="Email">Email</abbr>: <a href="mailto:imss.recursoselectronicos@gmail.com">imss.recursoselectronicos@gmail.com</a>
                         </p>
-                        <p><i class="fa fa-clock-o"></i> 
+                        <p><i class="fa fa-clock-o"></i>
                             <abbr title="Hours">Horario</abbr>: lunes - viernes: 8:00 AM a 16:00 Hrs</p>
                     </div>
                 </div>
@@ -264,12 +289,12 @@
                         <h3 class="media-heading">Capacitación</h3>
                         <p><strong>Maestra Edit Romero Hernández</strong> </p>
                         <p>División de Innovación Educativa </p>
-                        <p><i class="fa fa-phone"></i> 
+                        <p><i class="fa fa-phone"></i>
                             <abbr title="Phone">Tel</abbr>:  (55) 5627 6900   <strong> Exts.</strong> 21152</p>
-                        <p><i class="fa fa-envelope-o"></i> 
+                        <p><i class="fa fa-envelope-o"></i>
                             <abbr title="Email">Email</abbr>: <a href="mailto:edit.romero@imss.gob.mx">edit.romero@imss.gob.mx</a>
                         </p>
-                        <p><i class="fa fa-clock-o"></i> 
+                        <p><i class="fa fa-clock-o"></i>
                             <abbr title="Hours">Horario</abbr>: lunes - viernes: 8:00 AM a 16:00 Hrs</p>
                     </div>
                 </div>

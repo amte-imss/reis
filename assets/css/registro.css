@@ -1,0 +1,17 @@
+.rojo {
+    color: #a94442;
+}
+
+.panel-body table{
+    color: #000;
+}
+
+.fontTitulo{
+  color: #00a7b4;
+}
+
+.ligas{
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}

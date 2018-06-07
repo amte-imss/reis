@@ -36,13 +36,21 @@
                     <table class="table table-striped" style="background-color: #AAA; color:#000;">
                         <thead>
                             <tr class="success">
-                                <th colspan="3">Fechas</th>
+                                <th >Fechas</th>
+                                <th> Fecha de inicio</th>
+                                <th> Fecha de fin</th>
+                                <th >Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+                            $tipo_boton = "btn-info";
+                            $texto_boton = "Ver detalles";
                             foreach ($sesiones_programadas as $key_sp => $sesion) {
-                                echo '<tr><td>'.$sesion['a_nombre'].'</td><td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'</td><td>'.date("d-m-Y", strtotime($sesion['a_fin'])).'</td></tr>';
+                                echo '<tr><td>'.$sesion['a_nombre'].'</td><td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'</td><td>'.date("d-m-Y", strtotime($sesion['a_fin'])).'</td>
+                                <td><a href=' . site_url('registro') . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
+                                <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '"></td>
+                                </tr>';
                             }
                             ?>
                         </tbody>
@@ -67,7 +75,7 @@
                     </tr>
                 </table>
             </div>
-            
+
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <h3>&Uacute;ltimo recurso actualizado</h3>
                 <table class="table table-condensed">
@@ -85,7 +93,7 @@
                     </tr>
                     </tr>
                 </table>
-                
+
             </div> -->
         </div>
     </div>
@@ -100,7 +108,7 @@
                   <div class="col-sm-12">
                       <div class="table-responsive">
                     <table class="table table-striped" style="background-color: #AAA; color:#000">
- 
+
                                 <thead>
                                     <tr class="success">
                                         <th>Sesiones programadas</th>
@@ -109,14 +117,13 @@
                                         <th>Fecha  inicio de inscripción</th>
                                         <th>Fecha  cierre de inscripción</th>
                                         <th>Duración</th>
-                                       
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-
-                                    
-
+                                    $tipo_boton = "btn-info";
+                                    $texto_boton = "Ver detalles";
                                     foreach ($sesiones_programadas_distancia as $key_sp => $sesion) {
                                         echo '<tr><td>'.$sesion['a_nombre'].'</td>
                                         <td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'  '.date('H:i', strtotime($sesion['a_hr_inicio'])).'</td>
@@ -124,11 +131,12 @@
                                         <td>'.date("d-m-Y", strtotime($sesion['a_registro'])).'</td>
                                         <td>'.date("d-m-Y", strtotime($sesion['a_registro_fin'])).'</td>
                                         <td>'.number_format($sesion['a_duracion']).'</td>
-                                        
+                                        <td><a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
+                                        <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '"></td>
                                         </tr>';
                                     }
                                     ?>
-                               
+
 
                                 </tbody>
                             </table>
@@ -152,7 +160,7 @@
                     </tr>
                 </table>
             </div>
-            
+
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <h3>&Uacute;ltimo recurso actualizado</h3>
                 <table class="table table-condensed">
@@ -170,7 +178,7 @@
                     </tr>
                     </tr>
                 </table>
-                
+
             </div> -->
         </div>
     </div>

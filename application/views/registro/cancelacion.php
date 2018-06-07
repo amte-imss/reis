@@ -1,6 +1,7 @@
 <?php //echo css("password.css"); ?>
 <?php //echo js("modernizr.custom.js"); ?>
 <?php //echo js("hideShowPassword.min.js"); ?>
+<?php echo css("registro.css"); ?>
 <style type="text/css">
 .rojo {
     color: #a94442;
@@ -19,8 +20,8 @@
                 <div class="panel-body">
                     <div style="overflow: auto;">
                         <p>Sistema de registro a talleres de actualización en el uso de los recursos de información en salud.</p>
-                        <p>Si desea <a href="<?php echo site_url('/registro/cancelacion'); ?>" style="font-weight: bold;">cancelar</a> su registro a los talleres lo puede hacer desde <a href="<?php echo site_url('/registro/cancelacion'); ?>" style="font-weight: bold;">aquí</a>.</p>
-                        <p>Si desea re-agendar su asistencia debe primero <a href="<?php echo site_url('/registro/cancelacion'); ?>" style="font-weight: bold;">cancelar</a> su registro previo y posteriormente <a href="<?php echo site_url('/registro'); ?>" style="font-weight: bold;">registrarse</a> nuevamente. Considere las siguientes restricciones:<br>
+                        <p>Si desea <a href="<?php echo site_url('/registro/cancelacion'); ?>" class="ligas">cancelar <span class="glyphicon glyphicon-link"></span></a> su registro a los talleres lo puede hacer desde <a href="<?php echo site_url('/registro/cancelacion'); ?>" class="ligas">aquí <span class="glyphicon glyphicon-link"></span></a>.</p>
+                        <p>Si desea re-agendar su asistencia debe primero <a href="<?php echo site_url('/registro/cancelacion'); ?>" class="ligas">cancelar <span class="glyphicon glyphicon-link"></span></a> su registro previo y posteriormente <a href="<?php echo site_url('/registro'); ?>" class="ligas">registrarse <span class="glyphicon glyphicon-link"></span></a> nuevamente. Considere las siguientes restricciones:<br>
                             a) S&oacute;lo puede estar inscrito en un taller por a&ntilde;o.<br>
                             b) S&oacute;lo es posible cancelar y reprogramar en 1 ocasi&oacute;n la fecha de su preferencia.</p>
 
@@ -72,7 +73,7 @@
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="row" style="margin:5px;">
             <div class="panel">
-                <div class="breadcrumbs6 panel-heading" style="padding-left:20px; background-size: 100% 100%;"><h1 id="titulo_registro"><small><span class="glyphicon glyphicon-info-sign"></span></small> Cancelar registro a los talleres de actualización de recursos electrónicos <font color="yellow">(Sesiones presenciales. Sede CENAIDS Centro Médico Siglo XXI)</font></h1></div>
+                <div class="breadcrumbs6 panel-heading" style="padding-left:20px; background-size: 100% 100%;"><h2 id="titulo_registro"><small><span class="glyphicon glyphicon-info-sign"></span></small> Cancelar registro a los talleres de actualización de recursos electrónicos <font class="fontTitulo">(Sesiones presenciales. Sede CENAIDS Centro Médico Siglo XXI)</font></h2></div>
     				<div class="panel-body">
     				<?php if(exist_and_not_null($error)){ ?>
     					<div class="row">
@@ -94,72 +95,72 @@
                             <?php
                             echo $this->form_complete->create_element(
                                     array(
-                                        'id'=>'reg_matricula', 
-                                        'type'=>'text', 
+                                        'id'=>'reg_matricula',
+                                        'type'=>'text',
                                         'attributes'=>array(
-                                            'class'=>'form-control-personal', 
+                                            'class'=>'form-control-personal',
                                             'placeholder'=>'Matr&iacute;cula',
                                             'autocomplete'=>'off',
-                                            'data-toggle'=>'tooltip', 
-                                            'data-placement'=>'bottom', 
+                                            'data-toggle'=>'tooltip',
+                                            'data-placement'=>'bottom',
                                             'title'=>'Matr&iacute;cula',
                                             'maxlength'=>20
                                             )
                                         )
-                                    ); 
+                                    );
                             //'<br><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>','</div>'
-                            ?>                        
+                            ?>
                             </div>
                             <?php   echo form_error_format('reg_matricula'); ?>
                         </div>
                     </div>
-                      
+
                     <div class="form-group">
                         <label class="col-sm-4 control-label"><b class="rojo">*</b> Delegaci&oacute;n IMSS:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-chevron-down"> </span>
-                            <?php 
+                            <?php
                             echo $this->form_complete->create_element(
                                     array(
-                                        'id'=>'reg_delegacion', 
-                                        'type'=>'dropdown', 
-                                        'options'=>$delegaciones, 
+                                        'id'=>'reg_delegacion',
+                                        'type'=>'dropdown',
+                                        'options'=>$delegaciones,
                                         'first'=>array(''=>'Seleccione la delegaci&oacute;n'),
                                         'attributes'=>array(
                                             'class'=>'form-control-personal',
-                                            'data-placement'=>'bottom', 
+                                            'data-placement'=>'bottom',
                                             'title'=>'Delegaci&oacute;n de trabajo',
                                             )
                                         )
-                                    ); 
-                            ?>                       
+                                    );
+                            ?>
                             </div>
                             <?php   echo form_error_format('reg_delegacion'); ?>
                         </div>
                     </div>
-                                        
+
                     <div class="form-group">
                         <label class="col-sm-4 control-label"><b class="rojo">*</b> Folio de registro <a href="#" data-toggle="tooltip" title="Conjunto de números y letras que le fueron asignadas y enviadas a su correo electrónico cuando realizó su registro."><span class="glyphicon glyphicon-question-sign"> </span></a> :</label>
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-pencil"> </span>
-                                <?php 
+                                <?php
                                 echo $this->form_complete->create_element(
                                     array(
-                                        'id'=>'reg_folio', 
-                                        'type'=>'text', 
+                                        'id'=>'reg_folio',
+                                        'type'=>'text',
                                         'attributes'=>array(
-                                            'class'=>'form-control-personal', 
+                                            'class'=>'form-control-personal',
                                             'placeholder'=>'Folio de registro',
-                                            'autocomplete'=>'off', 
-                                            'data-placement'=>'bottom', 
+                                            'autocomplete'=>'off',
+                                            'data-placement'=>'bottom',
                                             'title'=>'Folio de registro',
                                             'maxlength'=>80
                                             )
                                         )
-                                    ); 
-                                ?>                            
+                                    );
+                                ?>
                             </div>
                              <?php echo form_error_format('reg_folio'); ?>
                         </div>
@@ -174,21 +175,21 @@
                             <?php
                             echo $this->form_complete->create_element(
     							array(
-    								'id'=>'txt_captcha', 
-    								'type'=>'text', 
+    								'id'=>'txt_captcha',
+    								'type'=>'text',
     								'attributes'=>array(
-    									'class'=>'form-control-personal ', 
+    									'class'=>'form-control-personal ',
     									'placeholder'=>'Escribe el texto de la imagen...',
     									'autocomplete'=>'off',
-    									'data-toggle'=>'tooltip', 
-    									'data-placement'=>'top', 
+    									'data-toggle'=>'tooltip',
+    									'data-placement'=>'top',
     									'title'=>'C&oacute;digo de seguridad',
     									'maxlength'=>6
     									)
     								)
-    							); 
+    							);
                             ?>
-                            
+
                             </div>
                             <?php echo form_error_format('txt_captcha'); ?>
                         </div>
@@ -197,16 +198,16 @@
         				<input type="hidden" id="token" name="token" value="<?php echo (exist_and_not_null($this->session->userdata('token')) ? $this->session->userdata('token') : ''); ?>">
                             <?php
                             echo $this->form_complete->create_element(array(
-                                'id'=>'btn_submit', 
-                                'type'=>'submit', 
-                                'value'=>'Enviar', 
+                                'id'=>'btn_submit',
+                                'type'=>'submit',
+                                'value'=>'Enviar',
                                 'attributes'=>array(
                                     'class'=>'btn btn-primary'
                                     )
                                 ));
-                            
-                            
-                            echo form_close(); 
+
+
+                            echo form_close();
                             ?>
                     </div>
                 </div>

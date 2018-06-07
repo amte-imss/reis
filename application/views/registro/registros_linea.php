@@ -1,17 +1,11 @@
-<!--<? php //echo css("password.css"); ?>
 <? php //echo js("modernizr.custom.js"); ?>
+<!--<? php //echo css("password.css"); ?>
 <? php //echo js("hideShowPassword.min.js"); ?>-->
-<style type="text/css">
-    .rojo {
-        color: #a94442;
-    }
 
-    .panel-body table{
-        color: #000;
-    }
-</style>
+<?php echo css("registro.css"); ?>
+
 <!--<pre>
-<? php 
+<? php
     print_r($sesiones_programadas_distancia);
 ?>
 </pre>-->
@@ -26,11 +20,10 @@
     <div class="panel-body">
         <div style="overflow: auto;">
             <p>Sistema de registro a talleres de actualización en el uso de los recursos de información en salud.</p>
-            <p>Si desea <a href="<?php echo site_url('/registro/cancelacion'); ?>" style="font-weight: bold;">cancelar</a> su registro a los talleres lo puede hacer desde <a href="<?php echo site_url('/registro/cancelacion'); ?>" style="font-weight: bold;">aquí</a>.</p>
-            <p>Si desea re-agendar su asistencia debe primero <a href="<?php echo site_url('/registro/cancelacion'); ?>" style="font-weight: bold;">cancelar</a> su registro previo y posteriormente <a href="<?php echo site_url('/registro'); ?>" style="font-weight: bold;">registrarse</a> nuevamente. Considere las siguientes restricciones:<br>
+            <p>Si desea <a href="<?php echo site_url('/registro/cancelacion'); ?>" class="ligas">cancelar <span class="glyphicon glyphicon-link"></span></a> su registro a los talleres lo puede hacer desde <a href="<?php echo site_url('/registro/cancelacion'); ?>" class="ligas">aquí <span class="glyphicon glyphicon-link"></span></a>.</p>
+            <p>Si desea re-agendar su asistencia debe primero <a href="<?php echo site_url('/registro/cancelacion'); ?>" class="ligas">cancelar <span class="glyphicon glyphicon-link"></span></a> su registro previo y posteriormente <a href="<?php echo site_url('/registro'); ?>" class="ligas">registrarse <span class="glyphicon glyphicon-link"></span></a> nuevamente. Considere las siguientes restricciones:<br>
                 a) S&oacute;lo puede estar inscrito en un taller por a&ntilde;o.<br>
                 b) S&oacute;lo es posible cancelar y reprogramar en 1 ocasi&oacute;n la fecha de su preferencia.</p>
-
             <p style="font-size:12px;">*Nota. Indispensable contar con equipo de cómputo personal.</p>
         </div>
         <div class="row">
@@ -70,9 +63,9 @@
                                         <td>' . date("d-m-Y", strtotime($sesion['a_registro_fin'])) . '</td>
                                         <td>' . number_format($sesion['a_duracion']) . '</td>
                                         <td>
-                                        <a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>                                         
+                                        <a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
                                         <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '">' .
-                                form_close() . '                                         
+                                form_close() . '
                                          </td>
                                         </tr>';
                             }
@@ -132,12 +125,12 @@ echo $this->form_complete->create_element(
         )
 );
 //'<br><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>','</div>'
-?>                        
+?>
                          </div>
 <?php echo form_error_format('reg_matricula'); ?>
                      </div>
                  </div>
-                   
+
                  <div class="form-group">
                      <label class="col-sm-4 control-label"><b class="rojo">*</b> Delegaci&oacute;n IMSS:</label>
                      <div class="col-sm-8">
@@ -157,12 +150,12 @@ echo $this->form_complete->create_element(
             )
         )
 );
-?>                       
+?>
                          </div>
 <?php echo form_error_format('reg_delegacion'); ?>
                      </div>
                  </div>
-                                     
+
                  <div class="form-group">
                      <label class="col-sm-4 control-label"><b class="rojo">*</b> Correo electr&oacute;nico:</label>
                      <div class="col-sm-8">
@@ -183,7 +176,7 @@ echo $this->form_complete->create_element(
             )
         )
 );
-?>                            
+?>
                          </div>
 <?php echo form_error_format('reg_email'); ?>
                      </div>
@@ -208,12 +201,12 @@ echo $this->form_complete->create_element(
             )
         )
 );
-?>                       
+?>
                          </div>
 <?php echo form_error_format('reg_sesion'); ?>
                      </div>
                  </div>
-                 
+
                  <div class="form-group">
                      <label class="col-sm-4 control-label"><b class="rojo">*</b> C&oacute;digo de seguridad:</label>
                      <div class="col-sm-8">
@@ -237,7 +230,7 @@ echo $this->form_complete->create_element(
         )
 );
 ?>
-                         
+
                          </div>
 <?php echo form_error_format('txt_captcha'); ?>
                      </div>
