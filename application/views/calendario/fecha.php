@@ -3,16 +3,19 @@
     <div class="col-md-3">
         <p class="lead">Recursos disponibles por editorial</p>
         <div class="list-group">
-            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/BMJ.html" class="list-group-item">BMJ Best Practice</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Elsevier.html" class="list-group-item">Elsevier</a>
-            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/England.html" class="list-group-item">The New England Journal of Medicine</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Gale.html" class="list-group-item">Gale Cengage Learning</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Lippincott.html" class="list-group-item">Lippincott Williams &amp; Wilkins (LWW) </a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/McGrawHill.html" class="list-group-item">McGraw Hill Education</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Oxford.html" class="list-group-item">Oxford University Press</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Springer.html" class="list-group-item">Springer</a>
-            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/England.html" class="list-group-item">The New England Journal of Medicine</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
         </div>

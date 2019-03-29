@@ -76,13 +76,14 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'admin_rist',
-	'password' => '0tr0P4ssw0rd2015*',
+	'username' => 'root',
+	'password' => 'root',
 	'database' => 'rist',
 	'dbdriver' => 'mysqli',
+	'port' => 3308, //Si al usar wamp o xampp no se levanta el servicio de mysql se cambia el puerto, en este caso fue 3308, si no tiene otra version de mysql instalada puede eliminar esta línea
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT !== 'development'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
