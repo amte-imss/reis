@@ -210,17 +210,17 @@
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Editoriales <span class="caret"></span> </a>
                          <ul class="dropdown-menu">
-             <li><a href="jama.html">American Medical Association</a></li>
-            <li><a href="ebsco.html">Ebsco México</a></li>
-            <li><a href="elsevier.html">Elsevier B.V.</a></li>
-            <li><a href="lippincott.html">Lippincott Williams &amp; Wilkins</a></li>
-            <li><a href="nature.html">Nature America Inc.</a></li>
-            <li><a href="oxford.html">Oxford University Press</a></li>
-            <li><a href="springer.html">Springer Science + Business Media</a></li>
-            <li><a href="decision.html">Decision Support in Medicine</a></li>
-            <li><a href="thomson.html">Thomson Reuters</a></li>
-            <li><a href="wiley.html">Wiley Blackwell</a></li>
-            <li><a href="walters.html">Walters Kluwer Health</a></li>
+             <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a></li>
+            <li> <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Tecision.html">Decision Support in Medicine</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Elsevier.html" class="list-group-item">Elsevier</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Lippincott.html" class="list-group-item">Lippincott Williams &amp; Wilkins</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Nature.html">Nature America Inc.</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Oxford.html">Oxford University Press</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Springer.html">Springer Science + Business Media</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Thomson.html">Thomson Reuters</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html">Wiley Blackwell</a></li>
+            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html">Wolters Kluwer Health</a></li>
           </ul>
                     </li>
                     <li>
