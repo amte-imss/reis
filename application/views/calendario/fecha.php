@@ -2,7 +2,7 @@
 
     <div class="col-md-3">
         <p class="lead">Recursos disponibles por editorial</p>
-        <div class="list-group">
+        <!--div class="list-group">
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a>
@@ -13,6 +13,21 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Springer.html" class="list-group-item">Springer</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
+        </div-->
+        <div class="list-group">
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/BMJ.html" class="list-group-item">BMJ Best Practice</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Elsevier.html" class="list-group-item">Elsevier</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/McGrawHill.html" class="list-group-item">McGraw Hill Education</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/England.html" class="list-group-item">The New England Journal of Medicine</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Oxford.html" class="list-group-item">Oxford University Press</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Springer.html" class="list-group-item">Springer</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
         </div>
@@ -55,9 +70,9 @@
                 <div class="container">
                     <div class="col-lg-3"><h3>SEDE</h3><p>En línea</p></div>
                     <div class="col-lg-3"><h4>Informes:</h4>
-                        <p>Maestra Edit Romero Hernández<br>
-                            Teléfono: 5627 6900, extensión 21152<br>
-                            <em>email:</em> edit.romero@imss.gob.mx</p>
+                        <p><!--Maestra Edit Romero Hernández<br>
+                            Teléfono: 5627 6900, extensión 21152<br-->
+                            <em>Correo electrónico:</em> <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a></p>
                     </div>
                     <div class="col-lg-3"> <h4>Requisitos Técnicos:</h4>
                         <p>Actualizar adobe conect<br>

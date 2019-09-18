@@ -75,9 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	/*'hostname' => 'localhost',
 	'username' => 'admin_rist',
-	'password' => '0tr0P4ssw0rd2015*',
+	'password' => '0tr0P4ssw0rd2015*',*/
+	'hostname' => '11.32.41.238',
+	'username' => 'innovaedu',
+	'password' => 'innovaedu',
 	'database' => 'rist',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

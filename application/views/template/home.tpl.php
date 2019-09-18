@@ -256,7 +256,7 @@ if (!is_null($main_content)) {
 
                                 <!--Red: 865021146, 865021147, 865021148<br>-->
 
-                                Correo electrónico : <a href="mailto:acceso.edumed@imss.gob.mx">acceso.edumed@imss.gob.mx</a><br>
+                                Informes : <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a><br>
 
                                 Horario: lunes - viernes: 8:00 AM a 16:00 hrs</p>
 

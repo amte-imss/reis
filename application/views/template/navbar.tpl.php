@@ -205,7 +205,7 @@
                                 <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Capacitación <span class="caret"></span> </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/materiales.html">Materiales de apoyo</a></li>
-                                    <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/calendario/presenciales" >Talleres de actualización presenciales</a></li>
+                                    <!--li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/calendario/presenciales" >Talleres de actualización presenciales</a></li-->
                                     <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/calendario">Sesiones de actualización en línea</a></li>
                                     <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/videotutoriales.html">Videotutoriales</a></li>
                                     <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/galeria.html">Galería de imágenes</a></li>

@@ -2,7 +2,7 @@
 
     <div class="col-md-3">
         <p class="lead">Recursos disponibles por editorial</p>
-        <div class="list-group">
+        <!--div class="list-group">
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a>
@@ -13,6 +13,22 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Springer.html" class="list-group-item">Springer</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
+        </div-->
+
+        <div class="list-group">
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/BMJ.html" class="list-group-item">BMJ Best Practice</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Elsevier.html" class="list-group-item">Elsevier</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/McGrawHill.html" class="list-group-item">McGraw Hill Education</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/England.html" class="list-group-item">The New England Journal of Medicine</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Oxford.html" class="list-group-item">Oxford University Press</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Springer.html" class="list-group-item">Springer</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
+            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
         </div>
@@ -53,17 +69,17 @@
             </div>
             <div class="row">
                 <div class="container">
-                    <div class="col-lg-3"><h3>SEDE</h3><p>Centro Nacional de Investigación<br/>
-                            Documental en Salud (CENAIDS),<br />sótano de la Unidad de Congresos,<br/> CMN SXXI </p></div>
+                    <!--div class="col-lg-3"><h3>SEDE</h3><p>Centro Nacional de Investigación<br/>
+                            Documental en Salud (CENAIDS),<br />sótano de la Unidad de Congresos,<br/> CMN SXXI </p></div-->
                     <div class="col-lg-3"><h4>Informes:</h4>
-                        <p>Maestra Edit Romero Hernández<br>
-                            Teléfono: 5627 6900, extensión 21152<br>
-                            <em>email:</em> edit.romero@imss.gob.mx</p>
+                        <!--p>Maestra Edit Romero Hernández<br>
+                            Teléfono: 5627 6900, extensión 21152<br-->
+                            <em>Correo electrónico:</em> recursoselectronicosimss@gmail.com</p>
                     </div>
-                    <div class="col-lg-3"> <h4>Horario:</h4>
+                    <!--div class="col-lg-3"> <h4>Horario:</h4>
                         <p>de 8:00 a 14:00 horas
                         </p><br>
-                    </div>
+                    </div-->
 
                     <div class="row">
                         <div data-wow-animation-name="fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;" class="col-lg-9 col-md-9 col-sm-9  wow fadeInLeft animated"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/registro" target="_blank" class="btn btn-primary btn-lg btn-block">¡Regístrate!</a></div>

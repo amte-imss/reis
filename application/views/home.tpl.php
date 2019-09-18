@@ -246,8 +246,7 @@ if($this->session->has_userdata("usuario_logeado")){
             </h1>
             <address>
                <p><i class="fa fa-phone pr-10"></i>Teléfono : 56 27 69 00 Exts. 21146, 21147 y 21148 </p>
-              <p><i class="fa fa-mobile pr-10"></i> Red: 865021146, 865021147, 865021148</p>
-              <p><i class="fa fa-envelope pr-10"></i>Correo electrónico :   <a href="javascript:;">acceso.edumed@imss.gob.mx</a></p>
+              <p><i class="fa fa-envelope pr-10"></i>Informes :   <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a></p>
                <p><i class="fa fa-globe pr-10"></i>Horario: lunes - viernes: 8:00 AM a 16:00 hrs </p>
             </address>
           </div>
