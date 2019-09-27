@@ -70,8 +70,7 @@
                 <div class="container">
                     <div class="col-lg-3"><h3>SEDE</h3><p>En línea</p></div>
                     <div class="col-lg-3"><h4>Informes:</h4>
-                        <p><!--Maestra Edit Romero Hernández<br>
-                            Teléfono: 5627 6900, extensión 21152<br-->
+                        <p>
                             <em>Correo electrónico:</em> <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a></p>
                     </div>
                     <div class="col-lg-3"> <h4>Requisitos Técnicos:</h4>

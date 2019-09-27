@@ -7,8 +7,7 @@
 	<p>b) S&oacute;lo es posible cancelar y reprogramar en 1 ocasi&oacute;n la fecha de su preferencia</p>
 	<br>
 	<p>Para cualquier duda o comentario no dude en comunicarse con nosotros.</p>
-	<b>Contacto:</b> Maestra Edit Romero Hernández <br>
-	<b>Correo electr&oacute;nico:</b> <a href="edit.romero@imss.gob.mx">edit.romero@imss.gob.mx</a><br>
+	<b>Correo electr&oacute;nico:</b> <a href="recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a><br>
 	<b>Teléfono:</b> 5627 6900 ext. 21152<bR>
 	<a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/">Sitio Web del convenio IMSS CONRICYT</a>
 	<br>

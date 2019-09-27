@@ -30,9 +30,7 @@
         <div class="container">
         <div class="col-lg-4"><h3>SEDE</h3><p>En línea</p></div>
         <div class="col-lg-4"><h4>Informes:</h4>
-                <p>Maestra Edit Romero Hernández<br>
-                Teléfono: 5627 6900, extensión 21152<br>
-                <em>email:</em> edit.romero@imss.gob.mx</p>
+                <em>Correo electrónico:</em> recursoselectronicosimss@gmail.com</p>
         </div>
         <div class="col-lg-4"> <h4>Requisitos Técnicos:</h4>
                 <p>Actualizar adobe conect<br>

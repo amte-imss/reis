@@ -162,12 +162,12 @@
                                   </div>
                                   <div class="media-body">
                                       <h3 class="media-heading">Capacitación</h3>
-                                      <p><strong>Maestra Edit Romero Hernández</strong> </p>
+                                      <p><strong>&nbsp;</strong> </p>
                                       <p>División de Innovación Educativa </p>
                                       <p><i class="fa fa-phone"></i> 
                                           <abbr title="Phone">Tel</abbr>:  (55) 5627 6900   <strong> Exts.</strong> 21152</p>
                                       <p><i class="fa fa-envelope-o"></i> 
-                                          <abbr title="Email">Email</abbr>: <a href="mailto:edit.romero@imss.gob.mx">edit.romero@imss.gob.mx</a>
+                                          <abbr title="Email">Email</abbr>: <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a>
                                       </p>
                                       <p><i class="fa fa-clock-o"></i> 
                                           <abbr title="Hours">Horario</abbr>: lunes - viernes: 8:00 AM a 16:00 Hrs</p>

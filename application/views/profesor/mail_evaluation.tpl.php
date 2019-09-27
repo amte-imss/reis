@@ -14,8 +14,7 @@
 	<h3 style="text-align: center;">¡Agradecemos su inter&eacute;s y participaci&oacute;n!</h3>
 </p>
 <p>
-	<b>Contacto:</b> Maestra Edit Romero Hernández <br>
-	<b>Correo electr&oacute;nico:</b> <a href="mailto:edit.romero@imss.gob.mx">edit.romero@imss.gob.mx</a><br>
+	<b>Correo electr&oacute;nico:</b> <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a><br>
 	<b>Teléfono:</b> 5627 6900 ext. 21152<bR>
 	<a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/">Sitio Web del convenio IMSS CONRICYT</a>
 </p>
