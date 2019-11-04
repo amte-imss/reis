@@ -166,7 +166,7 @@ class Registro extends MY_Controller {
 		$datos_registro['delegaciones'] = dropdown_options($delegaciones, 'cve_delegacion', 'nom_delegacion'); //generamos las opciones
 
 		$datos_registro['sesiones_programadas'] = $sesiones_programadas;
-		$sesiones_programadas_disponibles = $this->mod_registro->getSesion(array('conditions'=>"a_estado = ".$estado_agenda['ACTIVO']['id']." AND DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s') BETWEEN DATE_FORMAT(a_registro,'%Y-%m-%d %H:%i:%s') AND DATE_FORMAT(a_inicio - INTERVAL 1 DAY,'%Y-%m-%d %H:%i:%s') AND a_tipo=1")); //buscamos las sesiones programadas
+		$sesiones_programadas_disponibles = $this->mod_registro->getSesion(array('conditions'=>"a_estado = ".$estado_agenda['ACTIVO']['id']." AND DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s') BETWEEN DATE_FORMAT(a_registro,'%Y-%m-%d %H:%i:%s') AND DATE_FORMAT(a_inicio,'%Y-%m-%d %H:%i:%s') AND a_tipo=1")); //buscamos las sesiones programadas
 //		echo "Where: <pre>";
 //                echo "a_estado = ".$estado_agenda['ACTIVO']['id']." AND DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s') BETWEEN DATE_FORMAT(a_registro,'%Y-%m-%d %H:%i:%s') AND DATE_FORMAT(a_inicio - INTERVAL 1 DAY,'%Y-%m-%d %H:%i:%s') AND a_tipo=1";
 //                echo "</pre>";
