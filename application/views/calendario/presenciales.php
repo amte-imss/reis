@@ -108,7 +108,7 @@
 
                     foreach ($calendario as $fecha) {
                         $dia_actual = date("Y-m-d h:i:s");
-                        $fecha_inicio = date('Y-m-d h:i:s', strtotime('-1 day', strtotime($fecha['a_inicio']))); ///Regla establecida para el registro. Solo permite registros 24 horas antes del inicio de la sesión.
+                        $fecha_inicio = date('Y-m-d h:i:s', strtotime($fecha['a_inicio'])); ///Regla establecida para el registro. Solo permite registros 24 horas antes del inicio de la sesión.
                         $mes = date("m", strtotime($fecha['a_inicio']));
                         $dia = date("d", strtotime($fecha['a_inicio']));
                         $fin = date("d", strtotime($fecha['a_fin']));
