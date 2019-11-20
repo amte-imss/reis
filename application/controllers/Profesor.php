@@ -87,6 +87,8 @@ class Profesor extends CI_Controller {
                     $datos["students"][$clave]['asistencias']["I"] = $asistenciasI;
                     $asistenciasF = $this->profe->getAsistencias($valor["taller_id"], "F");
                     $datos["students"][$clave]['asistencias']["F"] = $asistenciasF;
+                    $asistenciasM = $this->profe->getAsistencias($valor["taller_id"], "M");
+                    $datos["students"][$clave]['asistencias']["M"][] = $asistenciasM;
                  }
                  $resultado['data'] = $this->load->view('/profesor/sesion.tpl.php', $datos, TRUE); //cargar vista
 			      }
@@ -147,7 +149,8 @@ class Profesor extends CI_Controller {
                             $tipo = "a_fin";
                         }
 //                        $tipo = array("I"=>"a_inicio","F"=>"a_fin")[$fields["tipo"]];
-
+//pr($datos['sesion']);
+//pr($resultado);
             if (strtotime(date("Y-m-d", strtotime($datos["sesion"][$tipo]))) != strtotime(date("Y-m-d"))) {
                 $resultado['error'] = "Not today men, keep waiting 'tll the big day";
 				// $resultado['error']='Hoy es '.date("Y-m-d").' no coincide con la fecha programa para la sesi�n '. $sesion['a_inicio'].', favor de verificarlo con el responsable del programa.';
@@ -201,7 +204,7 @@ class Profesor extends CI_Controller {
 		    $students = $this->profe->getStudents($sesion_id);
 
         $notificaciones = $errores = $asistenciasCompletas = array();
-
+//pr($datos["sesiones"]);
         foreach ($students as $id => $student) {
       	      $mail = $this->my_phpmailer->phpmailerclass();
       	      unset($student["asistencias"]);
@@ -209,10 +212,14 @@ class Profesor extends CI_Controller {
       	      $asistI = $this->profe->getAsistencias($student["taller_id"]);
               $asistF = $this->profe->getAsistencias($student["taller_id"], "F");
       	      // echo $student["usr_matricula"], "|agenda:$sesion_id" ;
-      	      // pr($asistI);
-      	      // pr($asistF);
+      	       /*pr($asistI);
+                 pr($asistF);
+                 pr(strtotime($asistF["as_fecha"]));
+                 pr(strtotime(date("Y-m-d", strtotime($datos["sesiones"]['a_fin']))));
               if (strtotime(date("Y-m-d", strtotime($datos["sesiones"]['a_inicio']))) == strtotime($asistI["as_fecha"]) &&
-              strtotime(date("Y-m-d", strtotime($datos["sesiones"]['a_fin']))) == strtotime($asistF["as_fecha"])) { ///Env�o de correo a usuarios que hallan tomado las 2 sesiones
+              strtotime(date("Y-m-d", strtotime($datos["sesiones"]['a_fin']))) == strtotime($asistF["as_fecha"])) { ///Env�o de correo a usuarios que hallan tomado las 2 sesiones */
+              //if (strtotime(date("Y-m-d", strtotime($datos["sesiones"]['a_fin']))) == strtotime($asistF["as_fecha"])) { ///Env�o de correo a usuarios que hallan tomado las 2 sesiones
+              if(isset($asistF) && !empty($asistF)) { //Se verifica que tenga la asistencia en la sesión final
                   $email = $this->load->view('profesor/mail_evaluation.tpl.php', $datos, true);
                   $mail->addAddress($student["usr_correo"], $student["fullname"]);
                   //$mail->addBCC('jesusz.unam@gmail.com');
@@ -259,7 +266,9 @@ class Profesor extends CI_Controller {
 
           $mailStatus->addAttachment($pathTabla, 'Lista Inscritos');
 
-          unlink($pathTabla);
+          if (file_exists($pathTabla)) {
+            unlink($pathTabla);
+          }
 
           $datos["notificaciones"] = $notificaciones;
 

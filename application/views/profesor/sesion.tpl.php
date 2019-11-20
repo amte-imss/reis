@@ -80,55 +80,45 @@
 						<td id="dayI_<?php echo $student['taller_id']?>" class="text-center">
 							<?php
 								if(!empty($student['asistencias']['I'])){
-									if($student['asistencias']['I']["as_fecha"]==date("Y-m-d",strtotime($sesiones['a_inicio'])) ){
-							?>
-											<i class="fa fa-check pr-10"></i>
-							<?php
-									}else{
-											if(strtotime(date("Y-m-d",strtotime($sesiones['a_fin']))) == strtotime(date("Y-m-d"))){
-							?>
-													<input type="checkbox"
-														name="<?php echo "ck_I_".$student["taller_id"]?>"
-														id="<?php echo "ck_".$sesion["tipo"]."_".$student["taller_id"]?>"
-														value="<?php echo "ck_".$sesion["tipo"]."_".$student["taller_id"]?>"
-														class="asistencia"
-														data-taller="<?php echo $student["taller_id"]?>"
-														data-sesion="<?php echo $sesiones["agenda_id"]?>"
-														data-tipo="<?php echo "I"?>"
-														/>
-							<?php
-											}else{
-												if(strtotime(date("Y-m-d",strtotime($sesiones['a_fin']))) > strtotime(date("Y-m-d"))){
-														echo "A&uacute;n no es el día agendado para esta sesión.";
-												}else{
-							?>
-														<i class="fa fa-times pr-10"></i>
-							<?php
-												}
-											}
-									}
-								}else{
-									if(strtotime(date("Y-m-d",strtotime($sesiones['a_inicio']))) == strtotime(date("Y-m-d"))){
-							?>
+									if($student['asistencias']['I']["as_fecha"]==date("Y-m-d",strtotime($sesiones['a_inicio'])) ){ ?>
+										<i class="fa fa-check pr-10"></i>
+									<?php } else {
+										if(strtotime(date("Y-m-d",strtotime($sesiones['a_fin']))) == strtotime(date("Y-m-d"))){ ?>
 											<input type="checkbox"
-												name="<?php echo "finicio_".$student["taller_id"]?>"
-												id="<?php echo "finicio_".$student["taller_id"]?>"
-												value="<?php echo "finicio_".$student["taller_id"]?>"
+												name="<?php echo "ck_I_".$student["taller_id"]?>"
+												id="<?php echo "ck_".$sesion["tipo"]."_".$student["taller_id"]?>"
+												value="<?php echo "ck_".$sesion["tipo"]."_".$student["taller_id"]?>"
 												class="asistencia"
 												data-taller="<?php echo $student["taller_id"]?>"
 												data-sesion="<?php echo $sesiones["agenda_id"]?>"
 												data-tipo="I"
-												onclick="saveAttandance('#<?php echo "finicio_".$student["taller_id"]?>');"
-												/>
-							<?php
-									}else{
+													/>
+										<?php } else {
 											if(strtotime(date("Y-m-d",strtotime($sesiones['a_fin']))) > strtotime(date("Y-m-d"))){
 													echo "A&uacute;n no es el día agendado para esta sesión.";
-											}else{
-							?>
+											} else { ?>
 													<i class="fa fa-times pr-10"></i>
-							<?php
-											}
+											<?php }
+										}
+									}
+								} else {
+									if(strtotime(date("Y-m-d",strtotime($sesiones['a_inicio']))) == strtotime(date("Y-m-d"))){ ?>
+										<input type="checkbox"
+											name="<?php echo "finicio_".$student["taller_id"]?>"
+											id="<?php echo "finicio_".$student["taller_id"]?>"
+											value="<?php echo "finicio_".$student["taller_id"]?>"
+											class="asistencia"
+											data-taller="<?php echo $student["taller_id"]?>"
+											data-sesion="<?php echo $sesiones["agenda_id"]?>"
+											data-tipo="I"
+											onclick="saveAttandance('#<?php echo "finicio_".$student["taller_id"]?>');"
+											/>
+									<?php } else {
+										if(strtotime(date("Y-m-d",strtotime($sesiones['a_fin']))) > strtotime(date("Y-m-d"))){
+												echo "A&uacute;n no es el día agendado para esta sesión.";
+										} else { ?>
+											<i class="fa fa-times pr-10"></i>
+										<?php }
 									}
 								}
 							?>
@@ -150,7 +140,7 @@
 														class="asistencia"
 														data-taller="<?php echo $student["taller_id"]?>"
 														data-sesion="<?php echo $sesiones["agenda_id"]?>"
-														data-tipo="<?php echo "F"?>"
+														data-tipo="F"
 														/>
 							<?php
 											}else{
@@ -173,7 +163,7 @@
 												class="asistencia"
 												data-taller="<?php echo $student["taller_id"]?>"
 												data-sesion="<?php echo $sesiones["agenda_id"]?>"
-												data-tipo="I"
+												data-tipo="F"
 												onclick="saveAttandance('#<?php echo "finicio_".$student["taller_id"]?>');"
 												/>
 							<?php

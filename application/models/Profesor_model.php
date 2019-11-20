@@ -85,7 +85,7 @@ class Profesor_model extends CI_Model {
         {
             return null;
         }
-        $tipo = array("I" => 1, "F" => 2);
+        $tipo = array("I" => 1, "F" => 2, "M" => 3);
 		// as_asistenca 1=> Inicio, 2=> FIN
 		$this->db->from("rist_asistencia");
         $this->db->where("taller_id", $id);
