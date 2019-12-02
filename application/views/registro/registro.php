@@ -40,7 +40,7 @@
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="row" style="margin:5px;">
             <div class="panel">
-                <div class="breadcrumbs6 panel-heading" style="padding-left:20px;  background-size: 100% 100%; padding-right: 20px;"><h2 id="titulo_registro"><small><span class="glyphicon glyphicon-info-sign"></span></small> Registro a los talleres de actualización de recursos electrónicos <font class="fontTitulo">(Sesiones presenciales. Sede CENAIDS Centro Médico Siglo XXI)</font></h2></div>
+                <div class="breadcrumbs6 panel-heading" style="padding-left:20px;  background-size: 100% 100%; padding-right: 20px;"><h2 id="titulo_registro"><small><span class="glyphicon glyphicon-info-sign"></span></small> Registro a los talleres de actualización de recursos electrónicos <!--font class="fontTitulo">(Sesiones presenciales. Sede CENAIDS Centro Médico Siglo XXI)</font--></h2></div>
 
                     <div class="panel-body">
                     <?php if(exist_and_not_null($error)){ ?>
