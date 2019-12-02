@@ -105,7 +105,7 @@
 
                     <?php
                     $par = 1; // declaramos una variable para controlar el clearfix
-
+//pr($calendario);
                     foreach ($calendario as $fecha) {
                         $dia_actual = date("Y-m-d h:i:s");
                         $fecha_inicio = date('Y-m-d h:i:s', strtotime($fecha['a_inicio'])); ///Regla establecida para el registro. Solo permite registros 24 horas antes del inicio de la sesión.
@@ -134,7 +134,7 @@
                                     <!-- Plan name -->
                                     <h3><?php echo $meses[$mes]; ?>
                                         <!-- Plan details -->
-                                        <h3>CONRICyT, Clinical Key, Summon, Up to Date, Ovid, Scopus, Access Medicine, Web of Science, EBSCO</h3>
+                                        <h3><?php echo $fecha['a_nombre']; ?> <!--CONRICyT, Clinical Key, Summon, Up to Date, Ovid, Scopus, Access Medicine, Web of Science, EBSCO--></h3>
                                         <?php echo $boton; ?>
                                 </div>
                             </div>
