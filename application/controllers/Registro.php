@@ -91,7 +91,7 @@ class Registro extends MY_Controller {
 	 * @modified. Miguel Ángel González Guagnelli, Cambios de seguridad.
 	 * @modified. Jesús Z. Díaz Peláez.
 	 */
-	public function index()
+	public function index($agenda = null)
 	{
 		$estado_agenda = $this->config->item('estado_agenda');
 		$error = $msg = null;
@@ -157,16 +157,17 @@ class Registro extends MY_Controller {
             }
 		}
 		$datos_registro['error'] = $error;
-                $datos_registro['msg'] = $msg;
+		$datos_registro['msg'] = $msg;
 
-                $datos_registro['delegacion_centro'] = $this->config->item('delegacion_centro');
+		$datos_registro['delegacion_centro'] = $this->config->item('delegacion_centro');
 
 		//se valida que el formulario traiga información
 		$delegaciones = $this->mod_registro->getDelegacion(); //buscamos las delegaciones
 		$datos_registro['delegaciones'] = dropdown_options($delegaciones, 'cve_delegacion', 'nom_delegacion'); //generamos las opciones
 
 		$datos_registro['sesiones_programadas'] = $sesiones_programadas;
-		$sesiones_programadas_disponibles = $this->mod_registro->getSesion(array('conditions'=>"a_estado = ".$estado_agenda['ACTIVO']['id']." AND DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s') BETWEEN DATE_FORMAT(a_registro,'%Y-%m-%d %H:%i:%s') AND DATE_FORMAT(a_inicio,'%Y-%m-%d %H:%i:%s') AND a_tipo=1")); //buscamos las sesiones programadas
+		$datos_registro['sesion_seleccionada'] = $agenda;
+		$sesiones_programadas_disponibles = $this->mod_registro->getSesion(array('conditions'=>"a_estado = ".$estado_agenda['ACTIVO']['id']." AND DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s') BETWEEN DATE_FORMAT(a_registro,'%Y-%m-%d %H:%i:%s') AND DATE_FORMAT(a_registro_fin,'%Y-%m-%d %H:%i:%s') AND a_tipo=1")); //buscamos las sesiones programadas
 //		echo "Where: <pre>";
 //                echo "a_estado = ".$estado_agenda['ACTIVO']['id']." AND DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s') BETWEEN DATE_FORMAT(a_registro,'%Y-%m-%d %H:%i:%s') AND DATE_FORMAT(a_inicio - INTERVAL 1 DAY,'%Y-%m-%d %H:%i:%s') AND a_tipo=1";
 //                echo "</pre>";

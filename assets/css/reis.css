@@ -15,7 +15,7 @@ and open the template in the editor.
  */
 
 body {
-    color: #797979;
+    color: #595959;
     font-family: 'Lato', sans-serif;
     /*font-family: 'Open Sans', sans-serif;*/
     padding: 0px !important;
@@ -84,12 +84,15 @@ margin-bottom: 20px;
 }
 
 footer {
-    color: #f5f5f5;
-    margin: 50px 0;
+    color: #333;
+    margin: 0px 0;
 }
 
 .footer-wrap {
-    background: #292d74;
+    background: #ccc; /*#292d74;*/
+    color: #333;
+    border-top: 20px solid #2d4838;
+    padding: 15px;      
 }
 
 .leader-ad {
@@ -106,3 +109,35 @@ footer {
  .size{
     width: 50px;
  }
+
+.navbar-default1 {
+    background-color: #2c4838 !important;
+}
+.navbar-toggle {
+    background:#fff;
+    padding: 8px;
+    color: #666;
+    border: 1px solid;
+}
+
+.navbar-default1 .navbar-toggle {
+    margin: 0px;
+    margin-top: -10px;
+}
+.menu_primario {
+    background-color: #2c4838;
+}
+
+.navbar-default1 .navbar-nav > li > a{
+    color: #fff;
+}
+
+.navbar-default1 .navbar-nav > li > a:hover{
+    background-color: #000;
+}
+.navbar-collapse.in {
+    overflow-y: unset;
+}
+.panel {
+    background-color: #ddd;
+}

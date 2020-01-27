@@ -13,10 +13,12 @@
 }
 </style>
 <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+        <a onclick="window.history.back();" class="btn btn-perfil"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
+    </div>
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="row" style="margin:5px;">
             <div class="panel">
-                <a onclick="window.history.back();" class="ligas"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
                 <div class="breadcrumbs6 panel-heading" style="padding-left:20px;">
                     <h1 id="titulo_registro"><small>
                         <span class="glyphicon glyphicon-info-sign"></span>
@@ -146,6 +148,7 @@
                                         'type'=>'dropdown',
                                         'options'=>$sesiones_programadas_disponibles,
                                         'first'=>array(''=>'Seleccione la sesión'),
+                                        'value'=>(!is_null($sesion_seleccionada) ? base64_decode($sesion_seleccionada) : ''),
                                         'attributes'=>array(
                                             'class'=>'form-control-personal',
                                             'data-placement'=>'bottom',
@@ -188,20 +191,22 @@
                         </div>
                     </div>
                     <div class="form-group text-right">
-                        <input type="hidden" id="token" name="token" value="<?php echo (exist_and_not_null($this->session->userdata('token')) ? $this->session->userdata('token') : ''); ?>">
-                            <?php
-                            echo $this->form_complete->create_element(array(
-                                'id'=>'btn_submit',
-                                'type'=>'submit',
-                                'value'=>'Registrar',
-                                'attributes'=>array(
-                                    'class'=>'btn btn-primary'
-                                    )
-                                ));
+                        <div class="col-sm-12">
+                            <input type="hidden" id="token" name="token" value="<?php echo (exist_and_not_null($this->session->userdata('token')) ? $this->session->userdata('token') : ''); ?>">
+                                <?php
+                                echo $this->form_complete->create_element(array(
+                                    'id'=>'btn_submit',
+                                    'type'=>'submit',
+                                    'value'=>'Registrar',
+                                    'attributes'=>array(
+                                        'class'=>'btn btn-perfil'
+                                        )
+                                    ));
 
 
-                            echo form_close();
-                            ?>
+                                echo form_close();
+                                ?>
+                            </div>
                     </div>
                 </div>
             </div>

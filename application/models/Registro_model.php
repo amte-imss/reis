@@ -30,6 +30,7 @@ class Registro_model extends CI_Model {
 
     public function getSesion($params=array()){
         $resultado = array();
+        //$this->db->select('');
         if(array_key_exists('fields', $params)){
             $this->db->select($params['fields']);
         }
@@ -40,7 +41,7 @@ class Registro_model extends CI_Model {
             $this->db->order_by($params['order']['field'], $params['order']['type']);
         }
 
-        $query = $this->db->get('rist_agenda'); //Obtener conjunto de registros
+        $query = $this->db->get('rist_agenda a'); //Obtener conjunto de registros
         $resultado = $query->result_array();
         //pr($this->db->last_query());
         $query->free_result(); //Libera la memoria

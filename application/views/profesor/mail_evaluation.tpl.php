@@ -23,7 +23,7 @@
 	&Aacute;rea de Documentaci&oacute;n en Salud.
 </p><br>
 <p>*Nota:</p>
-<p><b>- Es necesaria la puntualidad, las 2 asistencias y la evaluaci&oacute;n para recibir constancia.</b></p>
+<p><b>- Es necesaria la puntualidad, las asistencias y la evaluaci&oacute;n para recibir constancia.</b></p>
 <?php
 // <Pre>
 

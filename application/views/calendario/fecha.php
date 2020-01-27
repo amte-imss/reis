@@ -1,7 +1,7 @@
 <div class="row">
 
     <div class="col-md-3">
-        <p class="lead">Recursos disponibles por editorial</p>
+        <p class="lead">Recursos electrónicos de información en salud</p>
         <!--div class="list-group">
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
@@ -15,7 +15,7 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
-        </div-->
+        </div>
         <div class="list-group">
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
@@ -30,9 +30,9 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
-        </div>
+        </div-->
 
-        <div><a href=""><?php echo img("anuncio_cuadrado.gif",array("class"=>"img-responsive")); ?></a></div><p>&nbsp;</p>
+        <div><a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n"><?php echo img("anuncio_cuadrado.gif",array("class"=>"img-responsive")); ?></a></div><p>&nbsp;</p>
     </div>
 
     <div class="col-md-9">
@@ -68,20 +68,20 @@
             </div>
             <div class="row">
                 <div class="container">
-                    <div class="col-lg-3"><h3>SEDE</h3><p>En línea</p></div>
-                    <div class="col-lg-3"><h4>Informes:</h4>
-                        <p>
-                            <em>Correo electrónico:</em> <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a></p>
+                    <div class="col-lg-3">
+                        <h3>SEDE</h3><p>En línea</p><br>
+                        <h3>Informes:</h3>
+                        <p><em>Correo electrónico:</em> <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a></p>
                     </div>
-                    <div class="col-lg-3"> <h4>Requisitos Técnicos:</h4>
-                        <p>Actualizar adobe conect<br>
-                            Tener diadema con audífonos
-                        </p><br>
+                    <div class="col-lg-6"><h3>Requisitos Técnicos:</h3>
+                        <p>- Actualizar adobe connect<br>
+                        - Tener diadema con audífonos<br><br>
+                        * Nota. Las capacitaciones por medio de la plataforma Zoom (https://zoom.us/) requieren la instalación del software (<a href="https://zoom.us/download" target="_blank" style="color:#265c4f; font-weight:bold">descargable aquí https://zoom.us/download</a>) para poder ver la transmisión. 
+                            Si tienes alguna duda, puedes consultar video tutoriales en la siguiente liga <a href="https://support.zoom.us/hc/es/articles/206618765-Tutoriales-de-Zoom-en-video" target="_blank" style="color:#265c4f; font-weight:bold">https://support.zoom.us/hc/es/articles/206618765-Tutoriales-de-Zoom-en-video</a>
+                        </p>
                     </div>
                 </div>
             </div>
-            <p>&nbsp;</p>
-
 
             <div class="ui-60">
 

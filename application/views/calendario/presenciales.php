@@ -15,7 +15,7 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Vidal.html" class="list-group-item">Vidal Vademecum</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
-        </div-->
+        </div>
 
         <div class="list-group">
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
@@ -31,7 +31,7 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
-        </div>
+        </div-->
 
         <div><a href=""><?php echo img("anuncio_cuadrado.gif",array("class"=>"img-responsive")); ?></a></div><p>&nbsp;</p>
     </div>
@@ -82,7 +82,7 @@
                     </div-->
 
                     <div class="row">
-                        <div data-wow-animation-name="fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;" class="col-lg-9 col-md-9 col-sm-9  wow fadeInLeft animated"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/registro" target="_blank" class="btn btn-primary btn-lg btn-block">¡Regístrate!</a></div>
+                        <div data-wow-animation-name="fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;" class="col-lg-9 col-md-9 col-sm-9  wow fadeInLeft animated"> <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/registro" target="_blank" class="btn btn-perfil btn-lg btn-block">¡Regístrate!</a></div>
 
 
                     </div>
@@ -107,7 +107,8 @@
                     $par = 1; // declaramos una variable para controlar el clearfix
 //pr($calendario);
                     foreach ($calendario as $fecha) {
-                        $dia_actual = date("Y-m-d h:i:s");
+                        //pr($fecha);
+                        //$dia_actual = date("Y-m-d h:i:s");
                         $fecha_inicio = date('Y-m-d h:i:s', strtotime($fecha['a_inicio'])); ///Regla establecida para el registro. Solo permite registros 24 horas antes del inicio de la sesión.
                         $mes = date("m", strtotime($fecha['a_inicio']));
                         $dia = date("d", strtotime($fecha['a_inicio']));
@@ -118,10 +119,11 @@
                         $nombre = $fecha['a_nombre'];
                         $duracion = number_format($fecha['a_duracion']);
                         $status = $fecha['a_estado'];
-                        $liga = site_url('registro/');
+                        $liga = site_url('registro/index/'.base64_encode($fecha['agenda_id']));
                         $circle = 'bg-grey';
                         $boton = '<a class="btn btn-black" disabled >Cerrado</a>';
-                        if ($fecha_inicio > $dia_actual && $fecha['a_estado'] == 1) {
+                        //if ($fecha_inicio > $dia_actual && $fecha['a_estado'] == 1) {
+                        if ($fecha['activo_registro'] == true && $fecha['a_estado'] == 1) {
                             $boton = '<a href="' . $liga . '" class="btn btn-info">Registrar</a>';
                             $circle = 'bg-green';
                         }
@@ -129,7 +131,7 @@
                         ?><div class="col-md-4">
                             <!-- Pricing item -->
                             <div class="ui-item clearfix">
-                                <a class="ui-price <?php echo $circle; ?> circle"> <?php echo $dia . '<b> y </b><br />' . $fin; ?> </a>
+                                <a class="ui-price <?php echo $circle; ?> circle"> <?php echo $dia . '<b> al </b><br />' . $fin; ?> </a>
                                 <div class="ui-plan">
                                     <!-- Plan name -->
                                     <h3><?php echo $meses[$mes]; ?>

@@ -33,11 +33,10 @@
                         <thead>
                             <tr class="success">
                                 <th>Sesiones programadas</th>
+                                <th>Fecha inicio de inscripción</th>
+                                <th>Fecha cierre de inscripción</th>
                                 <th>Fecha y hora inicio </th>
                                 <th>Fecha y hora fin </th>
-                                <th>Fecha  inicio de inscripción</th>
-                                <th>Fecha  cierre de inscripción</th>
-                                <th>Duración</th>
                                 <th>Inscripción</th>
                             </tr>
                         </thead>
@@ -57,14 +56,13 @@
                                     $texto_boton = "Ver detalles";
                                 }
                                 echo '<tr><td>' . $sesion['a_nombre'] . '</td>
-                                        <td>' . date("d-m-Y", strtotime($sesion['a_inicio'])) . '  ' . date('H:i', strtotime($sesion['a_hr_inicio'])) . '</td>
-                                        <td>' . date("d-m-Y", strtotime($sesion['a_fin'])) . ' ' . date('H:i', strtotime($sesion['a_hr_fin'])) . '</td>
-                                        <td>' . date("d-m-Y", strtotime($sesion['a_registro'])) . '</td>
-                                        <td>' . date("d-m-Y", strtotime($sesion['a_registro_fin'])) . '</td>
-                                        <td>' . number_format($sesion['a_duracion']) . '</td>
-                                        <td>
-                                        <a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
-                                        <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '">' .
+                                    <td>' . date("d-m-Y", strtotime($sesion['a_registro'])) . '</td>
+                                    <td>' . date("d-m-Y", strtotime($sesion['a_registro_fin'])) . '</td>
+                                    <td>' . date("d-m-Y", strtotime($sesion['a_inicio'])) . '  ' . date('H:i', strtotime($sesion['a_hr_inicio'])) . '</td>
+                                    <td>' . date("d-m-Y", strtotime($sesion['a_fin'])) . ' ' . date('H:i', strtotime($sesion['a_hr_fin'])) . '</td>
+                                    <td>
+                                    <a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
+                                    <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '">' .
                                 form_close() . '
                                          </td>
                                         </tr>';

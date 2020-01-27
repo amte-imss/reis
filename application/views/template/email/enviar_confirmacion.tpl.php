@@ -8,7 +8,7 @@
 	<p>Horario: <b>De 8:00 a 14:00 horas.</b></p>
 	<p>Fecha: <b><?php echo date("d-m-Y", strtotime($agenda[0]['a_inicio'])).' y '.date("d-m-Y", strtotime($agenda[0]['a_fin'])); ?></b></p>
 	<p>Si desea cancelar o cambiar el taller en el cu&aacute;l se registr&oacute;, s&oacute;lo debe copiar y pegar en su navegador la siguiente liga <b><?php echo site_url("registro/cancelacion"); ?></b>, proporcionar los datos que se le solicitan y registrarse en una nueva fecha para cursar el taller.</p>
-	<p>Por &uacute;ltimo, le compartimos el calendario de impartici&oacute;n de talleres de &eacute;ste a&ntilde;o, para que pueda consultarlo e inscribirse al que m&aacute;s le agrade.</p>
+	<!--p>Por &uacute;ltimo, le compartimos el calendario de impartici&oacute;n de talleres de &eacute;ste a&ntilde;o, para que pueda consultarlo e inscribirse al que m&aacute;s le agrade.</p>
 	<table class="table table-striped" style="background-color: #AAA">
 		<tr>
 			<td>
@@ -41,18 +41,18 @@
                     </thead>
 				    <tbody>
 				        <?php
-                                        if(isset($agendas) && is_array($agendas)){
+                                        /*if(isset($agendas) && is_array($agendas)){
                                             foreach ($agendas as $key_sp => $sesion) {
                                                 echo '<tr><td>'.$sesion['a_nombre'].'</td><td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).' y '.date("d-m-Y", strtotime($sesion['a_fin'])).'</td></tr>';
                                             }
-                                        }
+                                        }*/
 				        ?>
 				    </tbody>
 				</table>
 			</td>
 		</tr>
 	</table>
-	<br>
+	<br-->
 	<p>*Restricciones:</p>
 	<p><b>a) S&oacute;lo puede estar inscrito en un taller por a&ntilde;o</b></p>
 	<p><b>b) S&oacute;lo es posible cancelar y reprogramar en 1 ocasi&oacute;n la fecha de su preferencia</b></p>

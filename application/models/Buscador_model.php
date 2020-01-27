@@ -70,9 +70,12 @@ class Buscador_model extends CI_Model {
                             'rist_taller.t_folio',
                             'rist_taller.t_hash_constancia',
                             'rist_taller.t_estado',
-                            'rist_agenda.a_inicio',     //'('.$fecha_inicio.') AS a_inicio' -   'rist_agenda.a_inicio'
-                            'rist_agenda.a_fin',
-                            'rist_agenda.a_tipo'         //'('.$fecha_fin.') AS a_fin'       -   'rist_agenda.a_fin'
+                            //'rist_agenda.a_inicio',     //'('.$fecha_inicio.') AS a_inicio' -   'rist_agenda.a_inicio'
+                            //'rist_agenda.a_fin',
+                            'rist_agenda.a_tipo',         //'('.$fecha_fin.') AS a_fin'       -   'rist_agenda.a_fin'
+                            '(select min(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) a_inicio', 
+                            '(select max(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) a_fin',
+                            '(select count(*) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) numero_sesion'
                             );
 
                 $this->db->select($busqueda);
@@ -249,12 +252,15 @@ class Buscador_model extends CI_Model {
             if(array_key_exists('conditions', $params)){
                 $this->db->where($params['conditions']);
             }
-            $this->db->order_by('a_inicio', 'DESC');
         	//$this->db->stop_cache();
         	/////////////////////// Fin almacenado de parámetros en cache ///////////////////////////
-            $this->db->select("CONCAT(a_nombre, ' (', DATE_FORMAT(a_inicio,'%d-%m-%Y %H:%i'), ')') AS a_nombre, agenda_id,a_cupo,a_desc,a_inicio,a_fin,a_evaluacion_inicio,a_evaluacion_fin");
-            $query = $this->db->get('rist_agenda'); //Obtener conjunto de registros
-
+            $this->db->select("case when a_inicio is not null then CONCAT(a_nombre, ' (', DATE_FORMAT(a_inicio, '%d-%m-%Y %H:%i'), ')') else CONCAT(a_nombre, ' (', DATE_FORMAT((select min(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = a.agenda_id), '%d-%m-%Y %H:%i'), ')') end as a_nombre,
+                case when a_inicio is not null then a_inicio else (select min(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = a.agenda_id) end a_inicio,
+                case when a_fin is not null then a_fin else (select max(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = a.agenda_id) end a_fin,
+                agenda_id,a_cupo,a_desc,a_evaluacion_inicio,a_evaluacion_fin");
+            $this->db->order_by('a_nombre');
+            $query = $this->db->get('rist_agenda a'); //Obtener conjunto de registros
+            //pr($this->db->last_query());
     	    //$resultado['total']=$this->db->count_all_results('idioma'); //Obtener el total de registros
     	    $resultado['data']=$query->result_array();
 

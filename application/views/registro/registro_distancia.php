@@ -23,11 +23,13 @@ if( $sesiones_programadas_distancia_disponibles != 0)
 </style>
 
 <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+        <a onclick="window.history.back();" class="btn btn-perfil"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
+    </div>
     <div class="<?php echo $col_ficha_informativa_clases ?>">
         <div class="row" style="margin:5px;">
             <div class="panel">
-                <a onclick="window.history.back();" class="ligas"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
-                <div class="breadcrumbs6 panel-heading" style="padding-left:20px; padding-top: 40px; padding-bottom: 50px; background-size: 100% 100%;">
+                <div class="breadcrumbs6 panel-heading" style="padding-left:20px; background-size: 100% 100%;">
                     <h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Bienvenido</h1></div>
                 <div class="panel-body">
                     <div class="row">
@@ -35,26 +37,23 @@ if( $sesiones_programadas_distancia_disponibles != 0)
                             <table class="table" style="background-color: #AAA">
                                 <thead>
                                     <tr class="success">
-                                        <th>Ficha informativa de taller</th>
-                                        <th></th>
+                                        <th colspan="2">Ficha informativa de taller</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                 <?php
+                                    <?php
                                     foreach ($sesiones_programadas_distancia as $key_sp => $sesion) {
-
-                                 ?>
-
-                                    <tr><td>Nombre de taller:</td><td><?php echo $sesion['a_nombre']?></td></tr>
-                                    <tr><td>Fecha de inicio de incripciones: </td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_registro']));?></td></tr>
-                                    <tr><td>Fecha de cierre de inscripciones:</td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_registro_fin']));?></td></tr>
-                                    <tr><td>Fecha y hora de inicio del taller:</td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_inicio']));?></td></tr>
-                                    <tr><td>Fecha y hora de fin del taller:</td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_fin']));?></td></tr>
-                                    <tr><td>Duración:</td><td><?php echo $sesion['a_duracion']?> h</td></tr>
+                                    ?>
+                                    <tr><td><b>Nombre de taller:</b></td><td><?php echo $sesion['a_nombre']?></td></tr>
+                                    <tr><td><b>Fecha de inicio de incripciones:</b> </td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_registro']));?></td></tr>
+                                    <tr><td><b>Fecha de cierre de inscripciones:</b></td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_registro_fin']));?></td></tr>
+                                    <tr><td><b>Fecha y hora de inicio del taller:</b></td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_inicio']));?></td></tr>
+                                    <tr><td><b>Fecha y hora de fin del taller:</b></td><td><?php echo date("d-m-Y - H:i",strtotime($sesion['a_fin']));?></td></tr>
+                                    <tr><td><b>Duración:</b></td><td><?php echo $sesion['a_duracion']?> h</td></tr>
                                     <?php
                                     if (isset($sesion['a_desc']) && !empty($sesion['a_desc'])) {
                                         ?>
-                                    <tr><td>Descripción:</td><td><?php echo $sesion['a_desc']?></td></tr>
+                                    <tr><td><b>Descripción:</b></td><td><?php echo nl2br($sesion['a_desc']); ?></td></tr>
 
                                  <?php
                                         }

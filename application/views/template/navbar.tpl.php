@@ -12,22 +12,24 @@
   padding-right: 11px;
 }
 </style>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
+<div class="menu_primario">
+<div class="container">
+    <nav class="navbar navbar-default1" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header home">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
+                <!--span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span-->
+                <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
             <!--<a class="navbar-brand" href="index.html">Inicio</a>-->
-            <a class="navbar-bran" style="font-size: 16px;" href="<?php echo site_url() ?>"><span class="glyphicon glyphicon-home"> </span> Home</a>
+            <!--a class="navbar-bran" style="font-size: 16px; color: #fff;" href="<?php //echo site_url() ?>"><span class="glyphicon glyphicon-home"> </span> Inicio</a-->
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding:0px;">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-right">
                 <?php
                 $usuario_logueado = $this->session->userdata('usuario_logeado');
                 $tipo_admin = $this->session->userdata('tipo_admin'); //Tipo de usuario almacenado en sesión
@@ -37,7 +39,7 @@
                     if ($tipo_admin == $tipo_admin_config['SUPERADMIN']['id']) { ///Administrador
                         ?>
                         <li>
-                            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                            <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -45,7 +47,6 @@
                                 <li>
                                     <a href="<?php echo site_url('registro'); ?>">Registro talleres presenciales</a>
                                 </li>
-
                                 <li>
                                     <a href="<?php echo site_url('registro/registrosagenda'); ?>">Registro sesiones en línea</a>
                                 </li>
@@ -60,15 +61,9 @@
                         <li>
                             <a href="<?php echo site_url('profesor'); ?>">Asistencia</a>
                         </li>
-
                         <li>
                             <a href="<?php echo site_url('buscador'); ?>">Buscador</a>
                         </li>
-                        <!--<li>
-                            <a href="<?php //echo site_url('usuarios');  ?>">Usuarios</a>
-                        </li>-->
-
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catálogos&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
@@ -78,14 +73,12 @@
                                 <li>
                                     <a href="<?php echo site_url('talleres'); ?>">Lista registro a talleres</a>
                                 </li>
-
                                 <li>
                                     <a href="<?php echo site_url('asistencia'); ?>">Lista asistencias</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo site_url('usuarios/admin'); ?>">Admin</a>
                                 </li>
-
                                 <li>
                                     <a href="<?php echo site_url('catalogos/categorias'); ?>">Categoría</a>
                                 </li>
@@ -97,15 +90,14 @@
                                 </li>
                             </ul>
                         </li>
-
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="<?php echo site_url('login/cerrar_session'); ?>"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
                         </li>
-    <?php } elseif ($tipo_admin == $tipo_admin_config['ADMIN']['id']) { ///Administrador  ?>
+                    <?php } elseif ($tipo_admin == $tipo_admin_config['ADMIN']['id']) { ///Administrador  ?>
                         <li>
-                            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                            <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -113,7 +105,6 @@
                                 <li>
                                     <a href="<?php echo site_url('registro'); ?>">Registro talleres presenciales</a>
                                 </li>
-
                                 <li>
                                     <a href="<?php echo site_url('registro/registrosagenda'); ?>">Registro sesiones en línea</a>
                                 </li>
@@ -128,19 +119,17 @@
                         <li>
                             <a href="<?php echo site_url('profesor'); ?>">Asistencia</a>
                         </li>
-
                         <li>
                             <a href="<?php echo site_url('buscador'); ?>">Buscador</a>
                         </li>
-
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="<?php echo site_url('login/cerrar_session'); ?>"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
                         </li>
-    <?php } else { //Docente  ?>
+                    <?php } else { //Docente  ?>
                         <li>
-                            <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
+                            <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -161,70 +150,76 @@
                     <?php }
                 } else { ///Usuario sin sesión
                     ?>
-                            <li>
-                                <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">Ir al sitio</a>
-                            </li>
-                            <li class="dropdown">
-                                <a  href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/presentacion.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio <span class="caret"></span> </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/presentacion.html">Presentación</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/convenio.html">Convenio IMSS-Conricyt</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/beneficios.html">Beneficios</a></li>
-                                </ul>
+                    <!--li>
+                        <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
+                    </li>
+                    <li class="dropdown">
+                        <a  href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/presentacion.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio <span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/presentacion.html">Presentación</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/convenio.html">Convenio IMSS-Conricyt</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/beneficios.html">Beneficios</a></li>
+                        </ul>
 
-                            <li class="dropdown">
-                                <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Formas de acceso <span class="caret"></span> </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/acceso.html">Acceso remoto</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/institucional.html">Red institucional</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/externa.html">Red externa</a></li>
-                                </ul>
-                            </li>
+                    <li class="dropdown">
+                        <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Formas de acceso <span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/acceso.html">Acceso remoto</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/institucional.html">Red institucional</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/externa.html">Red externa</a></li>
+                        </ul>
+                    </li>
 
-                            <li class="dropdown">
-                                <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recursos de información <span class="caret"></span> </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html">Recursos disponibles por editorial</a></li>
+                    <li class="dropdown">
+                        <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recursos de información <span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html">Recursos disponibles por editorial</a></li>
 
 
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Re_prueba.html">Recursos prueba</a>
-                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Re_prueba.html">Recursos prueba</a>
+                    </li>
 
-                            <li class="dropdown">
-                                <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recursos abiertos <span class="caret"></span> </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/aplicaciones.html">Aplicaciones</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos_abiertos.html" >Recursos abiertos</a></li>
-                                </ul>
-                            </li>
+                    <li class="dropdown">
+                        <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recursos abiertos <span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/aplicaciones.html">Aplicaciones</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos_abiertos.html" >Recursos abiertos</a></li>
+                        </ul>
+                    </li>
 
-                            <li class="dropdown">
-                                <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Capacitación <span class="caret"></span> </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/materiales.html">Materiales de apoyo</a></li>
-                                    <!--li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/calendario/presenciales" >Talleres de actualización presenciales</a></li-->
-                                    <li><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/calendario">Sesiones de actualización en línea</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/videotutoriales.html">Videotutoriales</a></li>
-                                    <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/galeria.html">Galería de imágenes</a></li>
-                                </ul>
-                            </li>
+                    <li class="dropdown">
+                        <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Capacitación <span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/materiales.html">Materiales de apoyo</a></li>
+                            <li><a href="http://<?php //echo $_SERVER['HTTP_HOST']; ?>/rist/index.php/calendario">Sesiones de actualización en línea</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/videotutoriales.html">Videotutoriales</a></li>
+                            <li><a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/galeria.html">Galería de imágenes</a></li>
+                        </ul>
+                    </li>
 
-                            <li>
-                                <a href="http://innovacioneducativa.imss.gob.mx/es/buzon" target="_blank">Buzón</a>
-                            </li>
+                    <li>
+                        <a href="http://innovacioneducativa.imss.gob.mx/es/buzon" target="_blank">Buzón</a>
+                    </li>
 
-                            <li>
-                                <a href="#">Contacto</a>
-                            </li>
-
-<?php } ?>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li-->
+                    <li id="menu-238-1" class="first odd sf-item-1 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es" class="sf-depth-1">Inicio</a></li>
+                    <li id="menu-728-1" class="active-trail middle even sf-item-2 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/coordinaci%C3%B3n-de-educaci%C3%B3n-en-salud" title="" class="sf-depth-1 active">Conócenos</a></li>
+                    <li id="menu-1917-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/normatividad" class="sf-depth-1">Normatividad</a></li>
+                    <li id="menu-1231-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/faq" title="" class="sf-depth-1">Preguntas frecuentes</a></li>
+                    <li id="menu-955-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/contacto" title="" class="sf-depth-1">Contacto</a></li>
+                    <li id="menu-2572-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/buzon" title="" class="sf-depth-1">Buzón</a></li>
+                    <li id="menu-1233-1" class="last odd sf-item-7 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/directorio-ces" title="" class="sf-depth-1">Directorio CES</a></li>
+                <?php } ?>
             </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+</div></div>
+<div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -17,23 +17,28 @@ class Profesor_model extends CI_Model {
         {
             return null;
         }
-        $this->db->select("agenda_id,a_nombre,a_cupo,a_desc,a_inicio,a_fin,a_evaluacion_inicio,a_evaluacion_fin,CONCAT('Sesi&oacute;n del ',DATE_FORMAT(a_inicio,'%d-%m-%Y'),' al ',DATE_FORMAT(a_fin,'%d-%m-%Y'))as fecha, a_liga");
-        $this->db->from("rist_agenda");
-        $this->db->where("agenda_id", $id);
+        //$this->db->select("agenda_id,a_nombre,a_cupo,a_desc,a_inicio,a_fin,a_evaluacion_inicio,a_evaluacion_fin,CONCAT('Sesi&oacute;n del ',DATE_FORMAT(a_inicio,'%d-%m-%Y'),' al ',DATE_FORMAT(a_fin,'%d-%m-%Y'))as fecha, a_liga");
+        $this->db->select("a.agenda_id, a_nombre, a_registro, a_evaluacion_inicio, a_evaluacion_fin, a_cupo, a_desc, a_estado, a_tipo, a_hr_inicio, a_hr_fin, 
+            a_registro_fin, a_duracion, a_liga, id_conferencia, texto_liga, min(af.a_agenda_fecha) a_inicio, max(af.a_agenda_fecha) a_fin, 
+            (case when now() between a_registro and a_registro_fin then true else false end) as 'activo_registro',
+            CONCAT('Sesión del <b>', DATE_FORMAT(min(af.a_agenda_fecha), '%d-%m-%Y'), '</b> al <b>', DATE_FORMAT(max(af.a_agenda_fecha), '%d-%m-%Y'),'</b>') as fecha, 
+            group_concat(CONCAT(af.agenda_fecha_id,'|',DATE(af.a_agenda_fecha))) as fechas");
+        $this->db->from("rist_agenda a");
+        $this->db->join("rist_agenda_fecha af", "af.agenda_id = a.agenda_id", "left");
+        $this->db->where("a.agenda_id", $id);
         $result = $this->db->get();
+        //pr($this->db->last_query());
         if ($result->num_rows() == 1)
         {
             $sesion = $result->result_array()[0];
             $result->free_result();
             return $sesion;
-        } else
-        {
+        } else {
             return null;
         }
     }
 
-    public function getSesionList($mes = 0)
-    {
+    /*public function getSesionList($mes = 0, $params = array()) {
         $resultado = array();
         $this->db->select("agenda_id,CONCAT(a_nombre,'. Sesi&oacute;n del ',DATE_FORMAT(a_inicio,'%d-%m-%Y'),' al ',DATE_FORMAT(a_fin,'%d-%m-%Y'))as fecha");
         $this->db->from('rist_agenda');
@@ -43,8 +48,46 @@ class Profesor_model extends CI_Model {
         {
             $this->db->where("EXTRACT(MONTH FROM a_inicio) = {$mes}");
         }
+        if ($params['rist_lista_anio'] > 0)
+        {
+            $this->db->where("EXTRACT(YEAR FROM a_inicio) = {$params['rist_lista_anio']}");
+        }
         $this->db->order_by("a_inicio", "ASC");
-		$query = $this->db->get();
+        $query = $this->db->get();
+        //pr($this->db->last_query());
+		
+        $resultado['data'] = $query->result_array();
+		// pr( $resultado);
+        $query->free_result(); //Libera la memoria
+        return dropdown_options($resultado['data'], 'agenda_id', 'fecha');
+    }*/
+
+    public function getSesionList($mes = 0, $params = array()) {
+        $resultado = array();
+        //$this->db->select("agenda_id, CONCAT(a_nombre,'. Sesi&oacute;n del ',DATE_FORMAT(a_inicio,'%d-%m-%Y'),' al ',DATE_FORMAT(a_fin,'%d-%m-%Y'))as fecha");
+        $this->db->select("a.agenda_id, CONCAT(a_nombre,'. Sesi&oacute;n del ',DATE_FORMAT(min(  af.a_agenda_fecha),'%d-%m-%Y'),' al ',DATE_FORMAT(max(af.a_agenda_fecha),'%d-%m-%Y')) as fecha, min(af.a_agenda_fecha) a_inicio");
+            /*a_nombre, a_registro, a_evaluacion_inicio, a_evaluacion_fin, a_cupo, a_desc, a_estado, a_tipo, a_hr_inicio, a_hr_fin, 
+            a_registro_fin, a_duracion, a_liga, id_conferencia, texto_liga, min(af.a_agenda_fecha) a_inicio, max(af.a_agenda_fecha) a_fin, 
+            (case when now() between a_registro and a_registro_fin then true else false end) as 'activo_registro'");*/
+        $this->db->from('rist_agenda a');
+        $this->db->join('rist_agenda_fecha af', 'af.agenda_id = a.agenda_id', 'left');
+
+        $this->db->where("a_estado", $params['rist_activo']);
+        $this->db->where("a_tipo", 1);
+
+        $this->db->group_by("a.agenda_id");
+
+        if ($mes > 0 && $mes < 13)
+        {
+            $this->db->having("EXTRACT(MONTH FROM min(af.a_agenda_fecha)) = {$mes}");
+        }
+        if ($params['rist_lista_anio'] > 0)
+        {
+            $this->db->having("EXTRACT(YEAR FROM min(af.a_agenda_fecha)) = {$params['rist_lista_anio']}");
+        }
+        $this->db->order_by("min(af.a_agenda_fecha)", "ASC");
+        $query = $this->db->get();
+        //pr($this->db->last_query());
 		
         $resultado['data'] = $query->result_array();
 		// pr( $resultado);
@@ -57,19 +100,22 @@ class Profesor_model extends CI_Model {
         $salida = null;
         if (!is_null($id) && $id != 0)
         {
-            $this->db->select("rist_taller.taller_id, rist_usuario.usr_matricula, CONCAT(rist_usuario.usr_nombre,' ',rist_usuario.usr_paterno,' ',rist_usuario.usr_materno) fullname, rist_taller.t_hash_constancia, rist_usuario.usr_correo, rist_categoria.nom_categoria, rist_departamentos.cve_depto_adscripcion, rist_departamentos.nom_depto_adscripcion, rist_delegacion.nom_delegacion,  rasist1.as_asistencia asist_inicio,  rasist2.as_asistencia asist_final");
+            $this->db->select("rist_taller.taller_id, rist_usuario.usr_matricula, CONCAT(rist_usuario.usr_nombre,' ',rist_usuario.usr_paterno,' ',rist_usuario.usr_materno) fullname, rist_taller.t_hash_constancia, 
+                rist_usuario.usr_correo, rist_categoria.nom_categoria, rist_departamentos.cve_depto_adscripcion, rist_departamentos.nom_depto_adscripcion, rist_delegacion.nom_delegacion,  
+                (select group_concat(a.agenda_fecha_id) from rist_asistencia a where a.taller_id = rist_taller.taller_id) asistencias");
             $this->db->from("rist_taller");
             $this->db->join("rist_usuario", "rist_usuario.usr_matricula = rist_taller.usr_matricula", "inner");
             $this->db->join("rist_categoria", "rist_categoria.des_clave = rist_taller.cve_categoria", "inner");
             $this->db->join("rist_departamentos", "rist_departamentos.cve_depto_adscripcion = rist_taller.cve_depto_adscripcion", "inner");
             $this->db->join("rist_delegacion", "rist_delegacion.cve_delegacion = rist_taller.cve_delegacion", "inner");
-            $this->db->join("rist_asistencia rasist1", "rasist1.taller_id = rist_taller.taller_id and rasist1.as_asistencia = 1", "left");
-            $this->db->join("rist_asistencia rasist2", "rasist2.taller_id = rist_taller.taller_id and rasist2.as_asistencia = 2", "left");
+            //$this->db->join("rist_asistencia rasist1", "rasist1.taller_id = rist_taller.taller_id and rasist1.as_asistencia = 1", "left");
+            //$this->db->join("rist_asistencia rasist2", "rasist2.taller_id = rist_taller.taller_id and rasist2.as_asistencia = 2", "left");
             $this->db->where("rist_taller.agenda_id", $id);
             $this->db->where("rist_taller.t_estado", 1);
             $this->db->group_by("rist_taller.taller_id");
-            $this->db->order_by("3");
+            $this->db->order_by("fullname");
             $query = $this->db->get();
+            //pr($this->db->last_query());
             if ($query->num_rows() > 0)
             {
                 $salida = $query->result_array();
@@ -85,14 +131,14 @@ class Profesor_model extends CI_Model {
         {
             return null;
         }
-        $tipo = array("I" => 1, "F" => 2, "M" => 3);
+        //$tipo = array("I" => 1, "F" => 2, "M" => 3);
 		// as_asistenca 1=> Inicio, 2=> FIN
 		$this->db->from("rist_asistencia");
         $this->db->where("taller_id", $id);
-        $this->db->where("as_asistencia", $tipo[$type]);
+        //$this->db->where("as_asistencia", $tipo[$type]);
 		$result = $this->db->get();
         if ($result->num_rows() == 1) {
-			$asistencias = $result->result_array()[0];
+			$asistencias = $result->result_array();
 			$result->free_result();
 			return $asistencias;
         } else {
@@ -105,8 +151,8 @@ class Profesor_model extends CI_Model {
         if (is_null($data) || empty($data)) {
 			return FALSE;
 		}
-        $tipo = array("I" => 1, "F" => 2);
-		$data["as_asistencia"] = $tipo[$data["as_asistencia"]];
+        /*$tipo = array("I" => 1, "F" => 2);
+		$data["as_asistencia"] = $tipo[$data["as_asistencia"]];*/
 		$this->db->insert('rist_asistencia', $data);
 		
 		$this->db->from("rist_asistencia");
@@ -116,6 +162,21 @@ class Profesor_model extends CI_Model {
 		$result->free_result();		
 		return $data;		
 		// return false;		
+    }
+    
+    public function deleteAsistencias($data = null) {
+        if (is_null($data) || empty($data)) {
+			return FALSE;
+		}
+        /*$tipo = array("I" => 1, "F" => 2);
+        $data["as_asistencia"] = $tipo[$data["as_asistencia"]];*/
+        $this->db->where($data);
+		$this->db->delete('rist_asistencia');
+		if( $this->db->affected_rows() != 1) {
+    		return false;
+    	} else {
+    		return true;		
+		}		
 	}
 	
     /*

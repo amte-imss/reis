@@ -30,16 +30,16 @@ class Buscador extends CI_Controller {
      */
 	public function index()	{
 
-		$sesiones = $this->buscador->listado_sesiones(array('conditions'=>array('a_estado'=>1)));
+		$sesiones = $this->buscador->listado_sesiones(array('conditions'=>array('a_estado'=>1, 'a_tipo'=>1)));
 		$categoria = $this->buscador->listado_categoria();
 		$delegacion = $this->buscador->listado_delegacion();
 		$adscripcion = $this->buscador->listado_adscripcion();
 		$tipo = $this->tipo_sesion;
-
+		
         $datos['sesiones'] = dropdown_options($sesiones['data'], 'agenda_id', 'a_nombre');
-		$datos['categoria'] = dropdown_options($categoria['data'], 'des_clave', 'nom_categoria');
+		//$datos['categoria'] = dropdown_options($categoria['data'], 'des_clave', 'nom_categoria');
 		$datos['delegacion'] = dropdown_options($delegacion['data'], 'cve_delegacion', 'nom_delegacion');
-		$datos['adscripcion'] = dropdown_options($adscripcion['data'], 'cve_depto_adscripcion', 'nom_depto_adscripcion');
+		//$datos['adscripcion'] = dropdown_options($adscripcion['data'], 'cve_depto_adscripcion', 'nom_depto_adscripcion');
 		$datos['tipo'] = dropdown_options($tipo, 'id', 'text');
 
 
@@ -90,13 +90,12 @@ class Buscador extends CI_Controller {
 
 				$datos_busqueda['current_row'] = (isset($current_row) && !empty($current_row)) ? $current_row : 0; //Registro actual, donde inicia la visualización de registros
 				$data_sesiones['tipo']=$this->input->post('tipo');
-				$data_sesiones['sesiones'] = $this->buscador->getSesion($datos_busqueda);
+				//$data_sesiones['sesiones'] = $this->buscador->getSesion($datos_busqueda);
 				$data_sesiones['alumnos'] = $this->buscador->listado($datos_busqueda); //Obtener datos de la publicación
 				//pr($data_sesiones);
 				$data_sesiones['current_row'] = $datos_busqueda['current_row'];
 				$data_sesiones['per_page'] = $this->input->post('per_page'); //Número de registros a mostrar por página
 				if($data_sesiones['alumnos']['total'] > 0){
-
 					$this->listado_resultado($data_sesiones, array('form_recurso'=>'#form_buscador', 'elemento_resultado'=>'#listado_resultado')); //Generar listado en caso de obtener datos
 				} else {
 					echo data_not_exist('No han sido encontrados datos con los criterios seleccionados. <script> $("#btn_export").hide(); </script>'); //Mostrar mensaje de datos no existentes
@@ -123,6 +122,7 @@ class Buscador extends CI_Controller {
 				header("Content-Disposition: attachment; filename=$filename");
 				header("Pragma: no-cache");
 				header("Expires: 0");
+				echo "\xEF\xBB\xBF"; // UTF-8 BOM
 				echo $this->load->view('buscador/resultado_busqueda', $data_sesiones, TRUE);
 			} else {
 				echo data_not_exist('No han sido encontrados datos con los criterios seleccionados. <script> $("#btn_export").hide(); </script>'); //Mostrar mensaje de datos no existentes

@@ -5,11 +5,11 @@
 </style>
 <div class="row">
     <div class="container">
-        <div class="breadcrumbs6 panel-heading" style="padding-left:20px; padding-top: 40px; padding-bottom: 50px; background-size: 100% 100%;">
+        <div class="breadcrumbs6 panel-heading" style="padding-left:20px; background-size: 100% 100%;">
             <h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Talleres presenciales de actualización de recursos electrónicos</h1></div>
         <div class="panel-body">
             <div class="col-lg-12">
-                <div class="col-sm-6">
+                <!--div class="col-sm-6">
                     <div class="table-responsive">
                     <table class="table" style="background-color: #AAA; color:#000;">
                         <thead>
@@ -31,7 +31,7 @@
                     </table>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6"-->
                     <div class="table-responsive">
                     <table class="table table-striped" style="background-color: #AAA; color:#000;">
                         <thead>
@@ -39,15 +39,23 @@
                                 <th >Fechas</th>
                                 <th> Fecha de inicio</th>
                                 <th> Fecha de fin</th>
+                                <th> Cupo</th>
+                                <th> Inscritos</th>
+                                <th> Asistencia</th>
                                 <th >Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $tipo_boton = "btn-info";
-                            $texto_boton = "Ver detalles";
+                            $texto_boton = "Ir a registro";
                             foreach ($sesiones_programadas as $key_sp => $sesion) {
-                                echo '<tr><td>'.$sesion['a_nombre'].'</td><td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'</td><td>'.date("d-m-Y", strtotime($sesion['a_fin'])).'</td>
+                                echo '<tr><td>'.$sesion['a_nombre'].'</td>
+                                <td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'</td>
+                                <td>'.date("d-m-Y", strtotime($sesion['a_fin'])).'</td>
+                                <td>'.$sesion['a_cupo'].'</td>
+                                <td>'.$sesion['inscritos'].'</td>
+                                <td>'.$sesion['asistencia'].'</td>
                                 <td><a href=' . site_url('registro') . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
                                 <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '"></td>
                                 </tr>';
@@ -56,7 +64,7 @@
                         </tbody>
                     </table>
                     </div>
-                </div>
+                <!--/div-->
             </div>
 
             <!-- <div class="col-lg-6 col-md-6 col-sm-6">
@@ -101,45 +109,44 @@
 
 <div class="row">
     <div class="container">
-        <div class="breadcrumbs6 panel-heading" style="padding-left:20px; padding-top: 40px; padding-bottom: 50px; background-size: 100% 100%;">
+        <div class="breadcrumbs6 panel-heading" style="padding-left:20px; background-size: 100% 100%;">
             <h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Sesiones en línea</h1></div>
         <div class="panel-body">
             <div class="col-lg-12">
                   <div class="col-sm-12">
-                      <div class="table-responsive">
-                    <table class="table table-striped" style="background-color: #AAA; color:#000">
+                    <div class="table-responsive">
+                        <table class="table table-striped" style="background-color: #AAA; color:#000">
+                            <thead>
+                                <tr class="success">
+                                    <th>Sesiones programadas</th>
+                                    <th>Fecha  inicio de inscripción</th>
+                                    <th>Fecha  cierre de inscripción</th>
+                                    <th>Fecha y hora inicio </th>
+                                    <th>Fecha y hora fin </th>
+                                    <th> Inscritos</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $tipo_boton = "btn-info";
+                                $texto_boton = "Ir a registro";
+                                foreach ($sesiones_programadas_distancia as $key_sp => $sesion) {
+                                    echo '<tr><td>'.$sesion['a_nombre'].'</td>
+                                    <td>'.date("d-m-Y", strtotime($sesion['a_registro'])).'</td>
+                                    <td>'.date("d-m-Y", strtotime($sesion['a_registro_fin'])).'</td>
+                                    <td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'  '.date('H:i', strtotime($sesion['a_hr_inicio'])).'</td>
+                                    <td>'.date("d-m-Y", strtotime($sesion['a_fin'])).' '.date('H:i', strtotime($sesion['a_hr_fin'])).'</td>
+                                    <td>'.$sesion['inscritos'].'</td>
+                                    <td><a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
+                                    <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '"></td>
+                                    </tr>';
+                                }
+                                ?>
 
-                                <thead>
-                                    <tr class="success">
-                                        <th>Sesiones programadas</th>
-                                        <th>Fecha y hora inicio </th>
-                                        <th>Fecha y hora fin </th>
-                                        <th>Fecha  inicio de inscripción</th>
-                                        <th>Fecha  cierre de inscripción</th>
-                                        <th>Duración</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $tipo_boton = "btn-info";
-                                    $texto_boton = "Ver detalles";
-                                    foreach ($sesiones_programadas_distancia as $key_sp => $sesion) {
-                                        echo '<tr><td>'.$sesion['a_nombre'].'</td>
-                                        <td>'.date("d-m-Y", strtotime($sesion['a_inicio'])).'  '.date('H:i', strtotime($sesion['a_hr_inicio'])).'</td>
-                                        <td>'.date("d-m-Y", strtotime($sesion['a_fin'])).' '.date('H:i', strtotime($sesion['a_hr_fin'])).'</td>
-                                        <td>'.date("d-m-Y", strtotime($sesion['a_registro'])).'</td>
-                                        <td>'.date("d-m-Y", strtotime($sesion['a_registro_fin'])).'</td>
-                                        <td>'.number_format($sesion['a_duracion']).'</td>
-                                        <td><a href=' . site_url('registro/registrodistancia/' . $sesion['agenda_id']) . ' value="Enviar notificación"  class="btn ' . $tipo_boton . '">' . $texto_boton . '</a>
-                                        <input type="hidden" id="reg_sesion" name="reg_sesion" value="' . $sesion['agenda_id'] . '"></td>
-                                        </tr>';
-                                    }
-                                    ?>
 
-
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
                       </div>
                 </div>
             </div>

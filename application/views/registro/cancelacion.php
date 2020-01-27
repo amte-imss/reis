@@ -13,10 +13,13 @@
 </style>
 
 <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+        <a onclick="window.history.back();" class="btn btn-perfil"><span class="glyphicon glyphicon-chevron-left"></span> Regresar</a>
+    </div>
     <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="row" style="margin:5px;">
             <div class="panel">
-                <div class="breadcrumbs6 panel-heading" style="padding-left:20px; padding-top: 40px; padding-bottom: 50px; background-size: 100% 100%;"><h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Bienvenido</h1></div>
+                <div class="breadcrumbs6 panel-heading" style="padding-left:20px;background-size: 100% 100%;"><h1><small><span class="glyphicon glyphicon-info-sign"></span></small> Bienvenido</h1></div>
                 <div class="panel-body">
                     <div style="overflow: auto;">
                         <p>Sistema de registro a talleres de actualización en el uso de los recursos de información en salud.</p>
@@ -195,20 +198,22 @@
                         </div>
                     </div>
                     <div class="form-group text-right">
-        				<input type="hidden" id="token" name="token" value="<?php echo (exist_and_not_null($this->session->userdata('token')) ? $this->session->userdata('token') : ''); ?>">
-                            <?php
-                            echo $this->form_complete->create_element(array(
-                                'id'=>'btn_submit',
-                                'type'=>'submit',
-                                'value'=>'Enviar',
-                                'attributes'=>array(
-                                    'class'=>'btn btn-primary'
-                                    )
-                                ));
+                        <div class="col-sm-12">
+                            <input type="hidden" id="token" name="token" value="<?php echo (exist_and_not_null($this->session->userdata('token')) ? $this->session->userdata('token') : ''); ?>">
+                                <?php
+                                echo $this->form_complete->create_element(array(
+                                    'id'=>'btn_submit',
+                                    'type'=>'submit',
+                                    'value'=>'Enviar',
+                                    'attributes'=>array(
+                                        'class'=>'btn btn-perfil'
+                                        )
+                                    ));
 
 
-                            echo form_close();
-                            ?>
+                                echo form_close();
+                                ?>
+                            </div>
                     </div>
                 </div>
             </div>

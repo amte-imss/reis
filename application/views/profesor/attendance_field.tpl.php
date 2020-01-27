@@ -1,5 +1,5 @@
 <?php
-$tipo_campo = array("I"=>"a_inicio","F"=>"a_fin")[$sesion["tipo"]];
+/*$tipo_campo = array("I"=>"a_inicio","F"=>"a_fin")[$sesion["tipo"]];
 if(!empty($asistencia)){
 // pr($asistencia);
 	if($asistencia["as_fecha"]==date("Y-m-d",strtotime($sesion[$tipo_campo])) ){
@@ -46,5 +46,16 @@ if(!empty($asistencia)){
 		<i class="fa fa-times pr-10"></i>
 	<?php
 	}
-}
+}*/
+
+echo '<input type="checkbox"
+	name="t_'.$fields["agendafecha"].'_'.$fields["taller_id"].'"
+	id="t_'.$fields["agendafecha"].'_'.$fields["taller_id"].'"
+	value="'.$fields["agendafecha"].'"
+	class="asistencia"
+	data-taller="'.$fields["taller_id"].'"
+	data-agendafecha="'.$fields["agendafecha"].'"
+	'.(($fields["check"] == 1) ? 'checked' : '').'
+	onclick="saveAttandance(\'#t_'.$fields["agendafecha"].'_'.$fields["taller_id"].'\');"
+	/>';
 ?>
