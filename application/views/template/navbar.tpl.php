@@ -41,6 +41,9 @@
                         <li>
                             <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url(); ?>">Inicio</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
@@ -99,6 +102,9 @@
                         <li>
                             <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url(); ?>">Inicio</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
@@ -130,6 +136,9 @@
                     <?php } else { //Docente  ?>
                         <li>
                             <a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n">Ir al sitio</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url(); ?>">Inicio</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talleres&nbsp;<i class="glyphicon glyphicon-chevron-down"></i></a>

@@ -270,9 +270,9 @@ class Profesor extends CI_Controller {
 
         $emailStatus = $this->load->view('profesor/mail_lista_asistentes.tpl.php', $datos, true);
         //$mailStatus->addAddress('zurgcom@gmail.com'); //pruebas chris
-        //$mailStatus->addAddress('ingrid.soto@imss.gob.mx');
-        $mailStatus->addAddress('jesusz.unam@gmail.com');
-        $mailStatus->addBCC('eoz19059@gmail.com');
+        $mailStatus->addAddress('ingrid.soto@imss.gob.mx');
+        //$mailStatus->addAddress('jesusz.unam@gmail.com');
+        $mailStatus->addBCC('jesusz.unam@gmail.com');
         $mailStatus->Subject = 'Lista de asistentes al taller :: Talleres IMSS';
         $mailStatus->msgHTML(utf8_decode($emailStatus));
 
