@@ -126,7 +126,10 @@ class Registro extends MY_Controller {
 
 								$guardar_taller = $this->mod_registro->guardarUsuarioTaller($usuario, $taller);
 								if($guardar_taller['result'] === TRUE){ // si guardar aspirante fue verdadero
-									$agendaData = $this->mod_registro->getSesion(array('conditions'=>array('agenda_id'=>$taller->agenda_id))); //Datos de la fecha programada
+									$agendaData = $this->mod_registro->getSesion(array('conditions'=>array('agenda_id'=>$taller->agenda_id), 'fields'=>"a.agenda_id, a_nombre, a_registro, a_evaluacion_inicio, a_evaluacion_fin, a_cupo, 
+										a_desc, a_estado, a_tipo, a_hr_inicio, a_hr_fin, a_registro_fin, a_duracion, a_liga, id_conferencia, texto_liga, 
+										(select min(af.a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = a.agenda_id) a_inicio, (select max(af.a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = a.agenda_id) a_fin, 
+										(case when now() between a_registro and a_registro_fin then true else false end) as 'activo_registro'")); //Datos de la fecha programada
 									$datos = array('usuario'=>$usuario, 'taller'=>$taller, 'agenda'=>$agendaData, 'agendas'=>$sesiones_programadas);
 									$plantilla = $this->load->view('template/email/enviar_confirmacion.tpl.php', $datos, true);
 
