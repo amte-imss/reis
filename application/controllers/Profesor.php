@@ -284,7 +284,7 @@ class Profesor extends CI_Controller {
         $pathTabla = './xls/listado'.rand(0, 10000).'.xls';
         write_file($pathTabla, $tabla);
 
-        $mailStatus->addAttachment($pathTabla, 'Lista Inscritos');
+        $mailStatus->addAttachment($pathTabla, 'Lista Inscritos.xls');
 
         $datos["mail_lista_asistencia"] = $mailStatus->send();
 
