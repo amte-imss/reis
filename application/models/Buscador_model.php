@@ -27,24 +27,27 @@ class Buscador_model extends CI_Model {
                 if(isset($params['sesiones']) && !empty($params['sesiones'])){
                     $this->db->where('rist_taller.agenda_id',$params['sesiones']);
                 }
-
                 if(isset($params['delegacion']) && !empty($params['delegacion'])){
                     $this->db->where('rist_taller.cve_delegacion',$params['delegacion']);
                 }
                 if(isset($params['categoria']) && !empty($params['categoria'])){
                         $this->db->where('rist_taller.cve_categoria',$params['categoria']);
                 }
-
+                if(isset($params['estado']) && $params['estado']!=''){
+                    $this->db->where('rist_agenda.a_estado',$params['estado']);
+                }
+                if(isset($params['anio']) && !empty($params['anio'])){
+                    $this->db->where('(select YEAR(max(a_agenda_fecha)) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id)=',$params['anio']);
+                }
                 if(isset($params['adscripcion']) && !empty($params['adscripcion'])){
                         $this->db->where('rist_taller.cve_depto_adscripcion',$params['adscripcion']);
                 }
-
                 if(isset($params['tipo']) && !empty($params['tipo'])){
                     $this->db->where('rist_agenda.a_tipo',$params['tipo']);
                 }
-
                 //pr($params);
-                $this->db->join('rist_agenda', 'rist_taller.agenda_id=rist_agenda.agenda_id AND rist_agenda.a_estado=1', 'left');
+                //$this->db->join('rist_agenda', 'rist_taller.agenda_id=rist_agenda.agenda_id AND rist_agenda.a_estado=1', 'left');
+                $this->db->join('rist_agenda', 'rist_taller.agenda_id=rist_agenda.agenda_id', 'left');
                 $this->db->join('rist_departamentos', 'rist_taller.cve_depto_adscripcion=rist_departamentos.cve_depto_adscripcion', 'left');
                 $this->db->join('rist_usuario', 'rist_taller.usr_matricula=rist_usuario.usr_matricula', 'left');
                 $this->db->join('rist_categoria', 'rist_taller.cve_categoria=rist_categoria.des_clave', 'left');

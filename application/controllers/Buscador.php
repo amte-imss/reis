@@ -31,18 +31,21 @@ class Buscador extends CI_Controller {
 	public function index()	{
 
 		$sesiones = $this->buscador->listado_sesiones(array('conditions'=>array('a_estado'=>1, 'a_tipo'=>1)));
-		$categoria = $this->buscador->listado_categoria();
+		//$categoria = $this->buscador->listado_categoria();
 		$delegacion = $this->buscador->listado_delegacion();
-		$adscripcion = $this->buscador->listado_adscripcion();
+		//$adscripcion = $this->buscador->listado_adscripcion();
 		$tipo = $this->tipo_sesion;
+		$anio = array();
+		foreach(range(2016, date('Y')) as $i) $anio[$i] = $i;
 		
         $datos['sesiones'] = dropdown_options($sesiones['data'], 'agenda_id', 'a_nombre');
 		//$datos['categoria'] = dropdown_options($categoria['data'], 'des_clave', 'nom_categoria');
 		$datos['delegacion'] = dropdown_options($delegacion['data'], 'cve_delegacion', 'nom_delegacion');
 		//$datos['adscripcion'] = dropdown_options($adscripcion['data'], 'cve_depto_adscripcion', 'nom_depto_adscripcion');
 		$datos['tipo'] = dropdown_options($tipo, 'id', 'text');
-
-
+		$datos['anio'] = $anio;
+		$datos['estado'] = array(0=>'Inactivo',1=>'Activo');
+		//pr($datos);
 		$datos['order_columns'] = array('usr_matricula'=>'Matrícula', 'fullname'=>'Nombre usuario');
 
 
@@ -82,12 +85,10 @@ class Buscador extends CI_Controller {
 		if($this->input->is_ajax_request()){ //Solo se accede al método a través de una petición ajax
 			if(!is_null($this->input->post())){ //Se verifica que se haya recibido información por método post
 
-                                //aqui va la nueva conexion a la base de datos del buscador
-
-                                //Se guarda lo que se busco asi como la matricula de quien realizo la busqueda
-
+				//aqui va la nueva conexion a la base de datos del buscador
+				//Se guarda lo que se busco asi como la matricula de quien realizo la busqueda
 				$datos_busqueda = $this->input->post(null, TRUE); //Datos del formulario se envían para generar la consulta
-
+				//pr($datos_busqueda);
 				$datos_busqueda['current_row'] = (isset($current_row) && !empty($current_row)) ? $current_row : 0; //Registro actual, donde inicia la visualización de registros
 				$data_sesiones['tipo']=$this->input->post('tipo');
 				//$data_sesiones['sesiones'] = $this->buscador->getSesion($datos_busqueda);

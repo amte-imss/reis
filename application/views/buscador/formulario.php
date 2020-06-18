@@ -10,17 +10,23 @@
                         </div>
                         <div class="panel-body">
                                 <div class="row">
-                                        <div class="col-lg-6 col-sm-6">
+                                        <div class="col-lg-4 col-sm-4">
                                                 <div class="panel-body  input-group input-group-sm">
                                                         <span class="input-group-addon">Tipo de Sesiones:</span>
-                                                                <?php echo $this->form_complete->create_element(array('id'=>'tipo', 'type'=>'dropdown', 'value'=>'1', 'options'=>$tipo, 'first'=>array(''=>'Seleccione...'), 'attributes'=>array('name'=>'tipo[]', 'class'=>'form-control', 'placeholder'=>'Tipo de sesiones', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Tipo de Sesiones'))); ?>
+                                                        <?php echo $this->form_complete->create_element(array('id'=>'tipo', 'type'=>'dropdown', 'value'=>'1', 'options'=>$tipo, 'first'=>array(''=>'Seleccione...'), 'attributes'=>array('name'=>'tipo[]', 'class'=>'form-control', 'placeholder'=>'Tipo de sesiones', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Tipo de Sesiones'))); ?>
                                                 </div>
                                         </div>
-                                        <div class="col-lg-6 col-sm-6">
-                                                    <div class="panel-body input-group input-group-sm">
-                                                            <span class="input-group-addon">Delegación:</span>
-                                                                    <?php echo $this->form_complete->create_element(array('id'=>'delegacion', 'type'=>'dropdown', 'options'=>$delegacion, 'first'=>array(''=>'Seleccione...'), 'attributes'=>array('name'=>'delegacion[]', 'class'=>'form-control', 'placeholder'=>'Delegación', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Delegación'))); ?>
-                                                    </div>
+                                        <div class="col-lg-4 col-sm-4">
+                                                <div class="panel-body  input-group input-group-sm">
+                                                        <span class="input-group-addon">Año (de termino de la sesión o taller):</span>
+                                                        <?php echo $this->form_complete->create_element(array('id'=>'anio', 'type'=>'dropdown', 'options'=>$anio, 'first'=>array(''=>'Seleccione...'), 'value'=>date('Y'), 'attributes'=>array('name'=>'anio[]', 'class'=>'form-control', 'placeholder'=>'Año', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Año'))); ?>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-4">
+                                                <div class="panel-body  input-group input-group-sm">
+                                                        <span class="input-group-addon">Estado:</span>
+                                                        <?php echo $this->form_complete->create_element(array('id'=>'estado', 'type'=>'dropdown', 'options'=>$estado, 'first'=>array(''=>'Seleccione...'), 'value'=>'1', 'attributes'=>array('name'=>'estado[]', 'class'=>'form-control', 'placeholder'=>'Estado', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Estado'))); ?>
+                                              </div>
                                         </div>
                                         <div class="col-lg-6 col-sm-6">
                                                 <div class="panel-body  input-group input-group-sm">
@@ -28,6 +34,12 @@
                                                                 <?php echo $this->form_complete->create_element(array('id'=>'sesiones', 'type'=>'dropdown', 'options'=>$sesiones, 'first'=>array(''=>'Seleccione...'), 'attributes'=>array('name'=>'sesiones[]', 'class'=>'form-control', 'placeholder'=>'Sesiones', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Sesiones'))); ?>
                                               </div>
                                         </div>
+                                        <div class="col-lg-6 col-sm-6">
+                                                    <div class="panel-body input-group input-group-sm">
+                                                            <span class="input-group-addon">Delegación:</span>
+                                                                    <?php echo $this->form_complete->create_element(array('id'=>'delegacion', 'type'=>'dropdown', 'options'=>$delegacion, 'first'=>array(''=>'Seleccione...'), 'attributes'=>array('name'=>'delegacion[]', 'class'=>'form-control', 'placeholder'=>'Delegación', 'data-toggle'=>'tooltip', 'data-placement'=>'top', 'title'=>'Delegación'))); ?>
+                                                    </div>
+                                        </div>                                        
                                 </div> <!-- /Row -->
                                 <div class="row">
                                     <div class="col-lg-12 text-center">
