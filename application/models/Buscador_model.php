@@ -37,7 +37,7 @@ class Buscador_model extends CI_Model {
                     $this->db->where('rist_agenda.a_estado',$params['estado']);
                 }
                 if(isset($params['anio']) && !empty($params['anio'])){
-                    $this->db->where('(select YEAR(max(a_agenda_fecha)) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id)=',$params['anio']);
+                    $this->db->where('case when rist_agenda.a_tipo = \'1\' then (select YEAR(max(a_agenda_fecha)) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id)='.$params['anio'].'  else YEAR(rist_agenda.a_inicio) = '.$params['anio'].' end', null, false);
                 }
                 if(isset($params['adscripcion']) && !empty($params['adscripcion'])){
                         $this->db->where('rist_taller.cve_depto_adscripcion',$params['adscripcion']);
@@ -76,8 +76,8 @@ class Buscador_model extends CI_Model {
                             //'rist_agenda.a_inicio',     //'('.$fecha_inicio.') AS a_inicio' -   'rist_agenda.a_inicio'
                             //'rist_agenda.a_fin',
                             'rist_agenda.a_tipo',         //'('.$fecha_fin.') AS a_fin'       -   'rist_agenda.a_fin'
-                            '(select min(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) a_inicio', 
-                            '(select max(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) a_fin',
+                            'case when rist_agenda.a_tipo = \'1\' then (select min(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) else rist_agenda.a_inicio end a_inicio', 
+                            'case when rist_agenda.a_tipo = \'1\' then (select max(a_agenda_fecha) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) else rist_agenda.a_inicio end a_fin',
                             '(select count(*) from rist_agenda_fecha af where af.agenda_id = rist_agenda.agenda_id) numero_sesion'
                             );
 
