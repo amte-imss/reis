@@ -98,6 +98,16 @@ class Registro_model extends CI_Model {
     public function guardarUsuarioTaller($usuario, $taller){
         $resultado = array('result'=>null, 'msg'=>'', 'data'=>null);
         $this->db->trans_begin(); //Definir inicio de transacción
+        
+        ////////Validar existencia de departamento en catalogo, en caso de no existir, se inserta
+        $validarDepartamento = $this->getDepartamento(array('conditions'=>'cve_depto_adscripcion=\''.$taller->cve_depto_adscripcion.'\''));        
+        if($validarDepartamento['total']==0)
+        {
+            $departamento = array('cve_depto_adscripcion'=>$taller->cve_depto_adscripcion,'nom_depto_adscripcion'=>$taller->descripcion_adscripcion, 'cve_delegacion'=>$taller->cve_delegacion);
+            $this->db->insert('rist_departamentos', $departamento); //Inserción de departamento
+        }
+        unset($taller->descripcion_adscripcion);
+        /////Fin de validación de departamento
 
         $validarUsuario = $this->getUsuario(array('conditions'=>'usr_matricula=\''.$usuario->usr_matricula.'\''));
 
@@ -158,6 +168,29 @@ class Registro_model extends CI_Model {
         }
 
         $query = $this->db->get('rist_usuario'); //Obtener conjunto de registros
+
+        $resultado['data'] = $query->result_array();
+        $resultado['total'] = $query->num_rows();
+        //pr($this->db->last_query());
+        $query->free_result(); //Libera la memoria
+
+        return $resultado;
+    }
+
+    public function getDepartamento($params=array()) {
+
+        $resultado = array();
+        if(array_key_exists('fields', $params)){
+            $this->db->select($params['fields']);
+        }
+        if(array_key_exists('conditions', $params)){
+            $this->db->where($params['conditions']);
+        }
+        if(array_key_exists('order', $params)){
+            $this->db->order_by($params['order']['field'], $params['order']['type']);
+        }
+
+        $query = $this->db->get('rist_departamentos'); //Obtener conjunto de registros
 
         $resultado['data'] = $query->result_array();
         $resultado['total'] = $query->num_rows();

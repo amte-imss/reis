@@ -350,6 +350,7 @@ class Registro extends MY_Controller {
 		//$taller->t_fecha_registro;
 		$taller->t_hash_constancia = $this->seguridad->folio_random(10, TRUE);
 		$taller->t_estado = (isset($customData['t_estado']) && !empty($customData['t_estado'])) ? $customData['t_estado'] : $this->estado_taller['ACTIVO']['id'];
+		$taller->descripcion_adscripcion = (isset($siapData['descripcion']) && !empty($siapData['descripcion'])) ? $siapData['descripcion'] : null;
 
 		return $taller;
 	}
@@ -388,14 +389,14 @@ class Registro extends MY_Controller {
 					{
 						// obtenemos los datos del sistema de personal (SIAP)
                         $datos_siap = $this->empleados_siap->buscar_usuario_siap( array("reg_delegacion"=>$datos_registro['reg_delegacion'], "asp_matricula"=>$datos_registro['reg_matricula']) );
-                        //pr($datos_siap);
+                        
 						if(is_array($datos_siap) && !empty($datos_siap))
 						{
 							if($datos_siap['status'] == 1) //si el status del empleado esta activo (1)
 							{
 								$usuario = $this->usuarioFactory($datos_siap, $datos_registro);
 								$taller = $this->tallerFactory($datos_siap, $datos_registro);
-
+								
 								$guardar_taller = $this->mod_registro->guardarUsuarioTaller($usuario, $taller);
 								if($guardar_taller['result'] === TRUE){ // si guardar aspirante fue verdadero
 									$agendaData = $this->mod_registro->getSesion(array('conditions'=>array('agenda_id'=>$taller->agenda_id))); //Datos de la fecha programada
@@ -541,4 +542,5 @@ class TallerEntity
 	//public $t_fecha_registro;
 	public $t_hash_constancia;
 	public $t_estado;
+	public $descripcion_adscripcion;
 }
