@@ -1,8 +1,8 @@
 <div class="row">
 
-    <div class="col-md-3">
+    <!--div class="col-md-3">
         <p class="lead">Recursos electrónicos de información en salud</p>
-        <!--div class="list-group">
+        <div class="list-group">
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/recursos.html" class="list-group-item">Recursos Electrónicos de información en Salud, REIS</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/JAMA.html" class="list-group-item">American Medical Association</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Ebsco.html" class="list-group-item">EBSCO México Inc., S.A. de C. V.</a>
@@ -30,40 +30,35 @@
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Science.html" class="list-group-item">Web of Science</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wiley.html" class="list-group-item">Wiley</a>
             <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/Wolters.html" class="list-group-item">Wolters Kluwer Health</a>
-        </div-->
+        </div>
 
-        <div><a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n"><?php echo img("anuncio_cuadrado.gif",array("class"=>"img-responsive")); ?></a></div><p>&nbsp;</p>
-    </div>
+        <div><a href="http://educacionensalud.imss.gob.mx/es/presentaci%C3%B3n"><?php //echo img("anuncio_cuadrado.gif",array("class"=>"img-responsive")); ?></a></div><p>&nbsp;</p>
+    </div-->
 
-    <div class="col-md-9">
+    <div class="col-md-12">
         <div class="breadcrumbs6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4">
-                        <h1>
-                            Sesiones en línea
-                        </h1>
-                    </div>
-                    <div class="col-lg-4 col-sm-4">
-                        <ol class="breadcrumb pull-right">
-                            <li>
-                                <a href="http://innovacioneducativa.imss.gob.mx/imss_conricyt/index.html">
-                                    Inicio
-                                </a>
-                            </li>
-                            <li class="active">
-                                Sesiones en línea
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <div class="property gray2-bg">
             <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-9  wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;" data-wow-animation-name="fadeInLeft">
+                <div class="col-lg-6 col-sm-6"></div>
+                <div class="col-lg-6 col-sm-6">
+                    <ol class="breadcrumb pull-right">
+                        <li>
+                            <a href="http://educacionensalud.imss.gob.mx/ces_wp/reis/">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="active">
+                            Sesiones en línea
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12  wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;" data-wow-animation-name="fadeInLeft">
                         <!--<img src="img/GIF-300x250.gif" class="img-responsive">-->
-                    <h1>Actualización para el aprovechamiento de recursos electrónicos de información en salud</h1>
+                    <h1 class="text-justify">Sesiones en línea de actualización para el aprovechamiento de recursos electrónicos de información en salud</h1>
                 </div>
             </div>
             <div class="row">
@@ -73,7 +68,7 @@
                         <h3>Informes:</h3>
                         <p><em>Correo electrónico:</em> <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a></p>
                     </div>
-                    <div class="col-lg-6"><h3>Requisitos Técnicos:</h3>
+                    <div class="col-lg-9 text-justify"><h3>Requisitos Técnicos:</h3>
                         <p>- Actualizar adobe connect<br>
                         - Tener diadema con audífonos<br><br>
                         * Nota. Las capacitaciones por medio de la plataforma Zoom (https://zoom.us/) requieren la instalación del software (<a href="https://zoom.us/download" target="_blank" style="color:#265c4f; font-weight:bold">descargable aquí https://zoom.us/download</a>) para poder ver la transmisión. 
@@ -96,12 +91,12 @@
 
                     <?php
                     $par = 1; // declaramos una variable para controlar el clearfix
-
                     foreach ($calendario as $fecha) {
                         $dia_actual = date("Y-m-d H:i:s");
                         $fecha_termino = strtotime($fecha['a_registro_fin']);
                         $mes = date("m", strtotime($fecha['a_inicio']));
                         $dia = date("d", strtotime($fecha['a_inicio']));
+                        $anio = date("Y", strtotime($fecha['a_inicio']));
                         //pr($dia_actual);
                         $nombre = $fecha['a_nombre'];
                         $hinicio = date("H:i", strtotime($fecha['a_hr_inicio']));
@@ -117,13 +112,13 @@
                             $circle = 'bg-green';
                         }
                         //<i class="fa fa-desktop orange"></i></h3>
-                        ?><div class="col-md-4">
+                        ?><div class="col-md-6">
                             <!-- Pricing item -->
                             <div class="ui-item clearfix">
                                 <a class="ui-price <?php echo $circle; ?> circle"> <?php echo $dia; ?> </a>
                                 <div class="ui-plan">
                                     <!-- Plan name -->
-                                    <h3><?php echo $meses[$mes]; ?>
+                                    <h3><?php echo $meses[$mes].' '.$anio; ?> </h3>
                                         <!-- Plan details -->
                                         <h3><?php echo $nombre; ?> </h3>
                                         <p>HORA: <?php echo $hinicio; ?> - <?php echo $hfin; ?>  hr</p>

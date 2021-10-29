@@ -27,6 +27,7 @@
         </style>
         <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.css" media="all">
         <style>
+        @import url('https://fonts.googleapis.com/css?family=GilmerBold:200,300,400,600,700');
         @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600,700');
         @import url("http://educacionensalud.imss.gob.mx/sites/all/themes/ces/assets/css/custom.css?q1wfy3");
         </style>
@@ -87,9 +88,6 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<!--div class="network-bar">
-    <a class="jama-network" href="/" title="Recursos Electrónicos de Información en Salud">Recursos Electrónicos de Información Salud</a>
-</div-->
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -165,20 +163,19 @@ if ($this->session->has_userdata("usuario_logeado")) {
         }
         ?>
         <!-- /.navegación -->
-<?php if (!is_null($main_title)) { ?>
+        <?php if (!is_null($main_title)) { ?>
             <header class="mastheadI">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="tituloI">
-    <?php echo $main_title ?>
+                                <?php echo $main_title ?>
                             </h1>
                         </div>
                     </div>
                 </div>
             </header>
-            <?php }
-        ?>
+        <?php } ?>
 
         <div class="container">
             <div class="row">
@@ -229,24 +226,16 @@ if (!is_null($main_content)) {
         </div>
 
 
-        <div class="footer-wrap">
+        <!--div class="footer-wrap">
             <div class="container">
-                <!-- Footer -->
                 <footer class="">
                     <div class="row">
                         <div class="col-lg-5">
                             <p>MESA DE AYUDA<br>
-
                                 Teléfono : 56 27 69 00 Extensiones: 21146, 21147 y 21148<br>
-
-                                <!--Red: 865021146, 865021147, 865021148<br>-->
-
                                 Informes : <a href="mailto:recursoselectronicosimss@gmail.com">recursoselectronicosimss@gmail.com</a><br>
-
                                 Horario: lunes - viernes: 8:00 AM a 16:00 hrs</p>
-
                         </div>
-
                         <div class="col-lg-7">
                             <p>PROBLEMAS CON EL ACCESO REMOTO<br>
                                 Soporte CONRICYT<br>
@@ -258,8 +247,18 @@ if (!is_null($main_content)) {
                         </div>
                 </footer>
             </div>
-
-        </div>
+        </div-->
+        <section class="elementor-section elementor-top-section elementor-element">
+            <div class="elementor-background-overlay"></div>
+            <div class="elementor-content">
+                <div class="container">
+                    <div class="title-desc text-justify">En 2014 la Coordinación de Educación en Salud, a través de la División de Innovación Educativa suscribió un convenio de colaboración entre el Instituto Mexicano del Seguro Social y el Consejo Nacional de Ciencia y Tecnología (CONACYT) por medio del Consorcio Nacional de Recursos de Información Científica y Tecnológica (CONRICYT) www.conricyt.mx
+                        <br><br>Este convenio se derivó de la demanda en cobertura de necesidades de información, a partir de su implementación proporciona el acceso a diferentes fuentes de información especializadas en formato electrónico, colecciones de publicaciones científicas, libros electrónicos a texto completo, bases de datos bibliográficas y bases de datos para apoyar la toma de decisiones clínicas; todos ellos con una amplia diversidad temática, destinados a todo el personal del IMSS en de las unidades médicas de primer, segundo y tercer nivel de atención, a las unidades de Información del Sistema Bibliotecario del IMSS (SIBIMSS), las Unidades y Centros de Investigación en Salud, las Escuelas de Enfermería, los Centros de Investigación Educativa y Formación Docente (CIEFD) así como de Nivel Central.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="clear:both;"></div><br>
 
 <!-- Inicio de Pie de página -->
 <footer class="panel-footer" id="pie">
@@ -276,7 +275,7 @@ if (!is_null($main_content)) {
         <section id="f-CES" class="col-xs-12 col-sm-6 col-md-3">
             <div class="region region-footer-t1">
                 <section id="block-block-41" class="block block-block contextual-links-region clearfix">
-                    <p><img alt="" src="http://educacionensalud.imss.gob.mx/?q=es/system/files/logofooter.png" style="width: 229px; height: 76px;"></p>
+                    <p><img alt="" src="http://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2021/04/gob_logo_blanco.png" style="width: 229px; height: 76px;"></p>
                 </section>
             </div>
         </section>
@@ -323,7 +322,7 @@ if (!is_null($main_content)) {
                         <p><span style="color:#ffffff;"><span style="font-size:14px;"><a href="mailto:gobmx@funcionpublica.gob.mx">gobmx@funcionpublica.gob.mx</a></span></span></p>
                         <p><span style="color:#ffffff;"><span style="font-size:14px;">Denuncia contra servidores públicos</span></span></p>
                         <p><span style="color:#ffffff;"><span style="font-size:14px;">Síguenos en:</span></span></p>
-                        <p><span style="font-size:14px;"><br><a href="https://www.facebook.com/gobmexico/"><img alt="" src="http://educacionensalud.imss.gob.mx/?q=es/system/files/facebook.png" style="width: 24px; height: 24px;"></a><a href="https://twitter.com/GobiernoMX"><img alt="" src="http://educacionensalud.imss.gob.mx/?q=es/system/files/twitter.png" style="width: 24px; height: 24px;"></a></span></p>
+                        <p><span style="font-size:14px;"><br><a href="https://www.facebook.com/gobmexico/"><img alt="" src="http://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2021/09/facebook.png" style="width: 24px; height: 24px;"></a><a href="https://twitter.com/GobiernoMX"><img alt="" src="http://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2021/09/twitter.png" style="width: 24px; height: 24px;"></a></span></p>
                     </section>
                 </div>
             </div>

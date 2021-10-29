@@ -29,7 +29,7 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding:0px;">
-            <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-center">
                 <?php
                 $usuario_logueado = $this->session->userdata('usuario_logeado');
                 $tipo_admin = $this->session->userdata('tipo_admin'); //Tipo de usuario almacenado en sesión
@@ -216,13 +216,13 @@
                     <li>
                         <a href="#">Contacto</a>
                     </li-->
-                    <li id="menu-238-1" class="first odd sf-item-1 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es" class="sf-depth-1">Inicio</a></li>
-                    <li id="menu-728-1" class="active-trail middle even sf-item-2 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/coordinaci%C3%B3n-de-educaci%C3%B3n-en-salud" title="" class="sf-depth-1 active">Conócenos</a></li>
-                    <li id="menu-1917-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/normatividad" class="sf-depth-1">Normatividad</a></li>
-                    <li id="menu-1231-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/faq" title="" class="sf-depth-1">Preguntas frecuentes</a></li>
-                    <li id="menu-955-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/contacto" title="" class="sf-depth-1">Contacto</a></li>
-                    <li id="menu-2572-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/buzon" title="" class="sf-depth-1">Buzón</a></li>
-                    <li id="menu-1233-1" class="last odd sf-item-7 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/es/directorio-ces" title="" class="sf-depth-1">Directorio CES</a></li>
+                    <li id="menu-238-1" class="first odd sf-item-1 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/" class="sf-depth-1">Inicio</a></li>
+                    <li id="menu-728-1" class="active-trail middle even sf-item-2 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/coordinacion-de-educacion-en-salud/" title="" class="sf-depth-1 active">Conócenos</a></li>
+                    <li id="menu-1917-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/normatividad/" class="sf-depth-1">Normatividad</a></li>
+                    <li id="menu-1231-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/educacion-permanente-en-salud/" title="" class="sf-depth-1">Tipo de capacitación</a></li>
+                    <li id="menu-2572-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/educacion-presencial/" title="" class="sf-depth-1">Recursos</a></li>
+                    <li id="menu-1233-1" class="last odd sf-item-7 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/directorio-ces/" title="" class="sf-depth-1">Directorio CES</a></li>
+                    <li id="menu-955-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="http://educacionensalud.imss.gob.mx/ces_wp/contacto/" title="" class="sf-depth-1">Contacto</a></li>
                 <?php } ?>
             </ul>
         </div>

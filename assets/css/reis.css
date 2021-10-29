@@ -15,8 +15,9 @@ and open the template in the editor.
  */
 
 body {
-    color: #595959;
-    font-family: 'Lato', sans-serif;
+    /*color: #595959;
+    font-family: 'Lato', sans-serif;*/
+    font-family: "gilmer", sans-serif;
     /*font-family: 'Open Sans', sans-serif;*/
     padding: 0px !important;
     margin: 0px !important;
@@ -109,9 +110,14 @@ footer {
  .size{
     width: 50px;
  }
+.navbar-nav {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Gilbert", Sans-serif;
+}
 
 .navbar-default1 {
-    background-color: #2c4838 !important;
+    background-color: #0C231E !important;
 }
 .navbar-toggle {
     background:#fff;
@@ -125,7 +131,7 @@ footer {
     margin-top: -10px;
 }
 .menu_primario {
-    background-color: #2c4838;
+    background-color: #0C231E;
 }
 
 .navbar-default1 .navbar-nav > li > a{
@@ -133,11 +139,52 @@ footer {
 }
 
 .navbar-default1 .navbar-nav > li > a:hover{
-    background-color: #000;
+    /*background-color: #000;*/
+    color: #DDC9A3;
+    background-color: transparent;
 }
 .navbar-collapse.in {
     overflow-y: unset;
 }
 .panel {
     background-color: #ddd;
+}
+h1 {
+    color: #339999;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+}
+
+.ui-60 .ui-item {
+    max-width: 600px !important;
+}
+
+.elementor-section {
+    color: #fff;
+    background-color: #399;
+}
+
+.elementor-background-overlay {
+    background-attachment: fixed;
+    background-image: url("http://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2021/07/REIS-IMSS-extendida.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+    opacity: 0.2;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    min-height: 350px;
+    
+}
+.elementor-content {
+    margin-top: -400px;
+}
+.title-desc {    
+    width: 65%;
+    opacity: 1;
+    padding: 40px 0px 50px;
+    margin: 50px 0px 0px;
+}
+a:hover {
+    color: #ff5316;
 }
