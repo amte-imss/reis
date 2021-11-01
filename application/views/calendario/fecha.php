@@ -45,7 +45,7 @@
                 <div class="col-lg-6 col-sm-6">
                     <ol class="breadcrumb pull-right">
                         <li>
-                            <a href="http://educacionensalud.imss.gob.mx/ces_wp/reis/">
+                            <a href="<?php echo site_url('login'); ?>">
                                 Inicio
                             </a>
                         </li>
